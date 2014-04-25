@@ -1,0 +1,77 @@
+extends layout
+
+block content
+  .row
+    .col-md-2.hidden-sm.hidden-xs
+    .col-md-8.col-sm-12.col-xs-12
+      // Carousel News Feed. Uses the model's "slides" array
+      div(id="news-feed", class=["carousel", "slide"], data-ride="carousel")
+        // Indicators
+        ol.carousel-indicators
+          li(data-target="#news-feed", data-slide-to="0", class="active")
+          li(data-target="#news-feed", data-slide-to="1")
+          li(data-target="#news-feed", data-slide-to="2")
+          li(data-target="#news-feed", data-slide-to="3")
+
+        // Slide Wrapper
+        .carousel-inner
+          .item.active
+            img(src="./img/ticker-1.jpg", alt="Big Ass News Feed")
+            .carousel-caption
+              p Big Ass News Feed :D
+          .item
+            img(src="./img/ticker-2.jpg", alt="Big Ass News Feed")
+            .carousel-caption
+              p Big Ass News Feed :D
+          .item
+            img(src="./img/ticker-3.jpg", alt="Big Ass News Feed")
+            .carousel-caption
+              p Big Ass News Feed :D
+          .item
+            img(src="./img/ticker-4.jpg", alt="Big Ass News Feed")
+            .carousel-caption
+              p Big Ass News Feed :D
+
+        // Control Chevrons
+        a(class=["left", "carousel-control"], href="#news-feed", data-slide="prev")
+          span.glyphicon.glyphicon-chevron-left
+        a(class=["right", "carousel-control"], href="#news-feed", data-slide="next")
+          span.glyphicon.glyphicon-chevron-right
+  .row
+    .col-md-12
+      .container-fluid
+        .row
+          .col-md-4
+            div(class=["panel", "panel-default"])
+              .panel-heading Who are we?
+              .panel-body
+                p We are the Carleton University Computer Science Society.
+                  | If you're a computer science student at Carleton University,
+                  | you are the CCSS too! We are the academic society which acts
+                  | as liason between students and school and your goto group to
+                  | connect with fellow comp sci.
+          .col-md-4
+            div(class=["panel", "panel-default"])
+              .panel-heading What do we do?
+              .panel-body
+                p The CCSS hosts a variety of events including coffee socials,
+                  | movie nights, tech talks featuring professors and industry
+                  | professionals, pub outings, and more. We also offer services
+                  | such as free printing for CS students, course pack sales,
+                  | job postings, curriculum advisory to the school,
+                  | and lounge space for CS students to meet, relax, and play.
+          .col-md-4
+            div(class=["panel", "panel-default"])
+              .panel-heading How can you get involved?
+              .panel-body
+                p Getting involved with the CCSS is easy; simply take advantage!
+                  | Show up to CCSS events, send us input for what you would like
+                  | to see happen this year in Computer Science either socially
+                  | or academically, or you can volunteer! Volunteers come in
+                  | many shapes and sizes; take on weekly hours and watch the
+                  | office for us, offer your help running or planning an event,
+                  | help out taking minutes at talks, workshops, or meetings.
+                p Feeling a bit more ambitious? Why not submit some projects to
+                  | us or contact our events committee about hosting your own
+                  | event, endorsed by the CCSS! The executives are here to serve,
+                  | and a little help goes a long way.

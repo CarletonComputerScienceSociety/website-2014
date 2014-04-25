@@ -1,0 +1,6 @@
+# Ignore Node Modules #
+node_modules
+
+# Ignore Bower Components #
+public/bower_components
+

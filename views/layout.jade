@@ -1,0 +1,103 @@
+doctype 5
+html
+  head
+    meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+    // bower:css
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
+    // endbower
+
+    link(rel='stylesheet', href='/css/style.css')
+
+    script(src='http://localhost:35729/livereload.js')
+    // bower:js
+    script(src='bower_components/jquery/dist/jquery.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    // endbower
+
+    // This is a fix for the affix script which keeps the nav-bar at the top
+    script(src='./js/affixFix.js')
+
+    block head
+
+    // Website content goes below here, in the container
+
+  body
+    .container-fluid#wrap
+      .row#header
+        .col-md-3.col-sm-12.col-xs-12
+          span.logo-block
+            img(class=["img-responsive", "logo"], src="img/ccssLogo.png")
+            h1 Carleton Computer Science Society
+        .col-md-1.hidden-xs.hidden-sm
+        .col-md-2.hidden-xs.hidden-sm
+          div(class=["panel", "panel-default"])
+            .panel-heading Academic Events
+            .panel-body Stuff goes here!
+        .col-md-2.hidden-xs.hidden-sm
+          div(class=["panel", "panel-default"])
+            .panel-heading Social Events
+            .panel-body Stuff goes here!
+        .col-md-2.hidden-xs.hidden-sm
+          div(class=["panel", "panel-default"])
+            .panel-heading Academic Rep
+            .panel-body Stuff goes here!
+        .col-md-2.hidden-xs.hidden-sm
+          div(class=["panel", "panel-default"])
+            .panel-heading Connect with Us!
+            .panel-body Stuff goes here!
+      div(class=["affix-wrapper"], data-spy="affix", data-offset-top="160")
+        .row#navbar-wrapper
+          nav(class=["navbar", "navbar-inverse"], id="nav", role="navigation")
+            .container-fluid
+              .navbar-header
+                button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#navbar-content")
+                  span.sr-only Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                a(class="navbar-brand", href="/") CCSS
+              div(class=["collapse", "navbar-collapse"], id="navbar-content")
+                ul(class=["nav", "navbar-nav", "nav-right"])
+                  li.dropdown
+                    a(href="#", data-toggle="dropdown") About Us
+                      b.caret
+                    ul.dropdown-menu
+                      li: a(href="#") What is the CCSS?
+                      li: a(href="#") Who are the CCSS executives?
+                      li: a(href="#") Governance Documents
+                      li: a(href="#") Contact Info
+                  li.dropdown
+                    a(href="#", data-toggle="dropdown") Academics
+                      b.caret
+                    ul.dropdown-menu
+                      li: a(href="#") Academic Updates
+                      li: a(href="#") Course Quick Reference
+                      li: a(href="#") Getting Extra Help
+                  li.dropdown
+                    a(href="#", data-toggle="dropdown") Events
+                      b.caret
+                    ul.dropdown-menu
+                      li: a(href="#") Events Calendar
+                      li: a(href="#") Academic Events
+                      li: a(href="#") Social Events
+                      li: a(href="#") Event Minutes/Notes
+                  li.dropdown
+                    a(href="#", data-toggle="dropdown") Get Involved
+                      b.caret
+                    ul.dropdown-menu
+                      li: a(href="#") Arcade Box Submissions
+                      li: a(href="#") Student Work Showcase
+                      li: a(href="#") Become a Volunteer
+                  li: a(href="#") Job Postings
+                  li: a(href="#") Forum
+                  li: a(href="#") Podcast
+                  li: a(href="#") Wiki
+      .row#content
+        block content
+      .row#footer
+        .col-sm-4
+          p Rawr
+        .col-sm-4
+          p Sauce
+        .col-sm-4
+          p Test
