@@ -14,6 +14,14 @@ a {
 #header {
 }
 
+/* Align the header into the centre if the screen is small */
+
+@media only screen and (max-width: 992px) {
+  #header {
+      text-align: center;
+  }
+}
+
 #header .logo-block {
   height: 100%;
   display: block;
