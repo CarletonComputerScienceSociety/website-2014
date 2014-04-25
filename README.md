@@ -12,7 +12,7 @@ is:
 
 * [Node.js](http://www.nodejs.org/): Server software, npm package manager
 * [Bower.js](http://bower.io/): Client-side package manager
-* [Grunt.js](ttp://gruntjs.com/): JavaScript task runner (similar to make)
+* [Grunt.js](http://gruntjs.com/): JavaScript task runner (similar to make)
 
 Once these are all installed, you need to ensure that you have up to date modules.
 This process is needed to reduce the code which is passed around on Github and
