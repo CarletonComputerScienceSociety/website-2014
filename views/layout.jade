@@ -1,21 +1,21 @@
-doctype 5
+doctype html
 html
   head
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
     // bower:css
-    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
     // endbower
 
     link(rel='stylesheet', href='/css/style.css')
 
     script(src='http://localhost:35729/livereload.js')
     // bower:js
-    script(src='bower_components/jquery/dist/jquery.js')
-    script(src='bower_components/bootstrap/dist/js/bootstrap.js')
+    script(src='/bower_components/jquery/dist/jquery.js')
+    script(src='/bower_components/bootstrap/dist/js/bootstrap.js')
     // endbower
 
     // This is a fix for the affix script which keeps the nav-bar at the top
-    script(src='./js/affixFix.js')
+    script(src='/js/affixFix.js')
 
     block head
 
@@ -25,9 +25,10 @@ html
     .container-fluid#wrap
       .row#header
         .col-md-3.col-sm-12.col-xs-12
-          span.logo-block
-            img(class=["img-responsive", "logo"], src="img/ccssLogo.png")
-            h1 Carleton Computer Science Society
+          a(href='/')
+            span.logo-block
+              img(class=["img-responsive", "logo"], src="/img/ccssLogo.png")
+              h1 Carleton Computer Science Society
         .col-md-1.hidden-xs.hidden-sm
         .col-md-2.hidden-xs.hidden-sm
           div(class=["panel", "panel-default"])
@@ -62,17 +63,17 @@ html
                     a(href="#", data-toggle="dropdown") About Us
                       b.caret
                     ul.dropdown-menu
-                      li: a(href="#") What is the CCSS?
-                      li: a(href="#") Who are the CCSS executives?
-                      li: a(href="#") Governance Documents
-                      li: a(href="#") Contact Info
+                      li: a(href="/about#what") What is the CCSS?
+                      li: a(href="/about#who") Who are the CCSS executives?
+                      li: a(href="/about#governance") Governance Documents
+                      li: a(href="/contact") Contact Info
                   li.dropdown
                     a(href="#", data-toggle="dropdown") Academics
                       b.caret
                     ul.dropdown-menu
                       li: a(href="#") Academic Updates
                       li: a(href="#") Course Quick Reference
-                      li: a(href="#") Getting Extra Help
+                      li: a(href="/extrahelp") Getting Extra Help
                   li.dropdown
                     a(href="#", data-toggle="dropdown") Events
                       b.caret
@@ -91,12 +92,23 @@ html
                   li: a(href="#") Job Postings
                   li: a(href="#") Forum
                   li: a(href="#") Podcast
-                  li: a(href="#") Wiki
+                  li: a(href="https://github.com/CarletonComputerScienceSociety/website/wiki/") Wiki
       .row#content
         block content
       .row#footer
         .col-sm-4
-          p Rawr
+          h1 Carleton Computer Science Society
+          p.
+            We, the CCSS, are the academic society at Carleton University for 
+            undergraduate computer science. We act as liason between student and
+            school for academics as well as provide social events for students to
+            enjoy. We also have a lounge in which students can relax and talk.
+          address
+            strong The Lounge, Office
+            br
+            span Carleton University, 1125 Colonel By Drive
+            br
+            span 4135HP (4th floor Herzberg Building)
         .col-sm-4
           p Sauce
         .col-sm-4

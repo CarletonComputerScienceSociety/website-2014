@@ -1,8 +1,47 @@
+////////////////////////////////////////////////////////////////////////////////
+// File: routes/index.js                                                      //
+// This file is really important. What it does is write the functions which   //
+// are called when a user types something into the URL or POSTs something     //
+// through a form or ajax request. All of these callbacks are put into the    //
+// exports object which is returned to app.js when calling the require method.//
+//                                                                            //
+// ADDING A NEW PAGE                                                          //
+// For basic pages that will be accessed by going to 'website.com/foo' where  //
+// foo is the page name, you will need to add a callback function to the page //
+// array as is shown below. If for some reason the .jade file is named        //
+// differently than the page name (that you access through the URL) then this //
+// is how to do it. Let's say you have 'bar.jade' and it's accessed by going  //
+// to 'website.com/foo'.                                                      //
+//                                                                            //
+// pages['foo'] = function(req, res) {                                        //
+//  res.render('bar', { title: 'Foo Page' + titleSuffix, body: {} });         //
+// };                                                                         //
+//                                                                            //
+// The actual routes are set up in app.js. These are just the functions that  //
+// are called when the url is called (GET request performed). Our convention  //
+// for the site is to pass a title and a body object to the jade template.    //
+// Title is the title of the page and body is any additional data to be sent. //
+// The title also includes the titleSuffix, so remember to add that unless you//
+// wish for it to not show up (special cases).                                //
+////////////////////////////////////////////////////////////////////////////////
 
-/*
- * GET home page.
- */
+var titleSuffix = " | Carleton Computer Science Society"; //Added to the end of each title
 
-exports.index = function(req, res){
-  res.render('index', { title: 'Express' });
+var pages = {}; 
+
+exports.index = function(req, res) {
+  res.render('index', { title: 'Welcome' + titleSuffix, body: {} });
 };
+
+pages['about'] = function(req, res) {
+  res.render('about', { title: 'About Us' + titleSuffix, body: {} });
+};
+
+pages['contact'] = function(req, res) {
+  res.render('contact', {title: 'Contact' + titleSuffix, body:{} });
+};
+
+pages['extrahelp'] = function(req, res) {
+  res.render('extrahelp', {title: 'Getting Extra Help' + titleSuffix, body:{} });
+};
+exports.pages = pages;

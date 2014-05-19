@@ -8,10 +8,15 @@ body {
 }
 
 a {
-  color: #00B7FF;
+  color: #a00;
 }
 
-#header {
+a:hover {
+  color: #500;
+}
+
+#header a, #header a:hover {
+  color: #000;
 }
 
 /* Align the header into the centre if the screen is small */
@@ -94,12 +99,28 @@ a {
 .navbar-inverse .navbar-nav>.dropdown>a:hover .caret { border-bottom-color: #FFFFFF}
 
 #content {
+  padding: 20px;
 }
 
 #footer {
   background-color: #222;
   color: #ddd;
   padding: 10px;
+  font-size: 0.8em;
+}
+
+#footer h1 {
+  font-size: 1.2em;
+  font-weight: 900;
+}
+
+/* This is for page anchors, to ensure the nav bar doesn't overwrite it */
+.anchored:before {
+  display: block;
+  content: " ";
+  margin-top: -40px;
+  height: 40px;
+  visibility: hidden;
 }
 
 /******************
@@ -117,4 +138,24 @@ a {
 
 .carousel-inner > .item > .carousel-caption {
   background-color: rgba(20,20,20,0.5)
+}
+
+/* About */
+
+@media only screen and (max-width: 992px) {
+  .bio .pic {
+      text-align: center;
+  }
+}
+
+.bio {
+  font-size: 0.8em;
+}
+
+.bio table {
+  overflow: auto;
+}
+
+.bio table tr td:first-of-type {
+  font-weight: 900;
 }

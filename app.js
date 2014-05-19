@@ -1,13 +1,8 @@
-
-/**
- * Module dependencies.
- */
-
 var express = require('express')
-  , routes = require('./routes')
-  , user = require('./routes/user')
-  , http = require('http')
-  , path = require('path');
+  , routes  = require('./routes')
+  , fs      = require('fs')
+  , http    = require('http')
+  , path    = require('path');
 
 var app = express();
 
@@ -20,15 +15,41 @@ app.configure(function(){
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
-  app.use(express.static(path.join(__dirname, 'public')));
-});
-
-app.configure('development', function(){
-  app.use(express.errorHandler());
+  app.use(express.static(path.join(__dirname, 'public')));  
 });
 
 app.get('/', routes.index);
-app.get('/users', user.list);
+
+// This sets up the URL routes that people can access for all basic URLs. If the
+// URL isn't found in our pages array, it responds with a 404 and logs the attempt
+// To form more complicated URLs, such as /podcast/episodes/3 or something, look
+// up documentation for Express 3
+
+app.get('/:id', function(req, res, next) { 
+  if (routes.pages[req.params.id])
+    routes.pages[req.params.id](req,res,next);
+  else {
+    console.error("404 Error: Attempted to access ['" + req.params.id + "'].");
+    res.render('404');
+  }
+});
+
+// This sets up the special /assets directory. All files in /assets can be accessed
+// by visiting /assets/foo.bar and can be linked as such. This shouldn't need to
+// be changed.
+
+app.get('/assets/:id', function(req, res, next) {
+  if (req.params.id) {
+    fs.readFile("public/assets/" + req.params.id, function(err, data) {
+          if (err) { console.error("404 Error: Attempted to access ['assets/" + req.params.id + "']."); res.render('404'); }
+          else {
+            res.send(data);
+          }
+        });
+  }
+});
+
+// Create the server and begin listening for connections
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
