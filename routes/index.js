@@ -25,16 +25,23 @@
 // wish for it to not show up (special cases).                                //
 ////////////////////////////////////////////////////////////////////////////////
 
+
 var titleSuffix = " | Carleton Computer Science Society"; //Added to the end of each title
 
 var pages = {}; 
 
+// The index page contains a news ticker. All of the articles of the news ticker
+// are stored in ../newsArticles.json and are imported here and sent to be compiled
+// with jade.
 exports.index = function(req, res) {
-  res.render('index', { title: 'Welcome' + titleSuffix, body: {} });
+  var news = require('../newsArticles'); //Pull the JSON file with the articles
+  res.render('index', { title: 'Welcome' + titleSuffix, body: {articles: news.articles} });
+  var cachedName = require.resolve('../newsArticles'); //Find the name in the require cache
+  delete require.cache[cachedName]; // Delete this so that it pulls the latest copy of the JSON file each time
 };
 
 pages['about'] = function(req, res) {
-  res.render('about', { title: 'About Us' + titleSuffix, body: {} });
+  res.render('about', {title: 'About Us' + titleSuffix, body: {} });
 };
 
 pages['contact'] = function(req, res) {
@@ -44,4 +51,33 @@ pages['contact'] = function(req, res) {
 pages['extrahelp'] = function(req, res) {
   res.render('extrahelp', {title: 'Getting Extra Help' + titleSuffix, body:{} });
 };
+
+pages['courses'] = function(req, res) {
+  res.render('courses', {title: 'Course Reference' + titleSuffix, body:{}});
+};
+
+pages['events'] = function(req, res) {
+  res.render('events', {title: 'Upcoming Events' + titleSuffix, body: {}});
+};
+
+pages['arcadebox'] = function(req, res) {
+  res.render('arcadebox', {title: 'Arcade Box Submissions' + titleSuffix, body: {}});
+};
+
+pages['studentwork'] = function(req, res) {
+  res.render('studentwork', {title: 'Student Work' + titleSuffix, body: {}});
+};
+
+pages['volunteer'] = function(req, res) {
+  res.render('volunteer', {title: 'Volunteer Information' + titleSuffix, body: {}});
+};
+
+pages['jobs'] = function(req, res) {
+  res.render('jobs', {title: 'Job Postings' + titleSuffix, body: {}});
+};
+
+pages['frosh'] = function(req, res) {
+  res.render('frosh', {title: 'NotFrosh 2014' + titleSuffix, body: {}});
+};
+
 exports.pages = pages;

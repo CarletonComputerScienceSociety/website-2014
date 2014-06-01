@@ -1,36 +1,33 @@
 extends layout
-
+  
 block content
   .row
     .col-md-2.hidden-sm.hidden-xs
     .col-md-8.col-sm-12.col-xs-12
-      // Carousel News Feed. Uses the model's "slides" array
+      // Carousel News Feed. Uses the model's "articles" array
+      // Note what is commented at the bottom. It's important. It uses a script
+      // to avoid redundant code
       div(id="news-feed", class=["carousel", "slide"], data-ride="carousel")
         // Indicators
         ol.carousel-indicators
-          li(data-target="#news-feed", data-slide-to="0", class="active")
-          li(data-target="#news-feed", data-slide-to="1")
-          li(data-target="#news-feed", data-slide-to="2")
-          li(data-target="#news-feed", data-slide-to="3")
+          each article, i in body.articles
+              li(data-target="#news-feed", data-slide-to=i)
 
         // Slide Wrapper
         .carousel-inner
-          .item.active
-            img(src="./img/ticker-1.jpg", alt="Big Ass News Feed")
-            .carousel-caption
-              p Big Ass News Feed :D
-          .item
-            img(src="./img/ticker-2.jpg", alt="Big Ass News Feed")
-            .carousel-caption
-              p Big Ass News Feed :D
-          .item
-            img(src="./img/ticker-3.jpg", alt="Big Ass News Feed")
-            .carousel-caption
-              p Big Ass News Feed :D
-          .item
-            img(src="./img/ticker-4.jpg", alt="Big Ass News Feed")
-            .carousel-caption
-              p Big Ass News Feed :D
+          each article in body.articles
+            if article.link
+              .item
+                a(href=article.link)
+                  img(src=article.src, alt=article.description)
+                .carousel-caption
+                  a(href=article.link)
+                    p #{article.description}
+            else
+              .item
+                img(src=article.src, alt=article.description)
+                .carousel-caption
+                  p #{article.description}
 
         // Control Chevrons
         a(class=["left", "carousel-control"], href="#news-feed", data-slide="prev")
@@ -79,3 +76,9 @@ block content
                   us or contact our events committee about hosting your own
                   event, endorsed by the CCSS! The executives are here to serve,
                   and a little help goes a long way.
+                  
+  //This script initializes the carousel's first elements to be "active"
+  //Without this script, there is a ton of code reuse and it gets very messy
+  //Can't change the id names as such without adjusting the fix. It must be called
+  //after everything renders!
+  script(src="/js/carouselFix.js", type="text/javascript")

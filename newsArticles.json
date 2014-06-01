@@ -1,0 +1,14 @@
+{
+  "articles" : [
+    {
+      "description" : "New website is up and running! Faster and more user-friendly.",
+      "src" : "/img/news/new-site.png"
+    },
+    {
+      "description" : "!Frosh 2014 Plans are underway! Games, LAN Party, Hackathon, tech talks? Click for info!",
+      "src" : "/img/news/frosh.jpg",
+      "link" : "/frosh"
+    }
+  ],
+  "README" : "All images should be sized to 720x480. There is an optional link attribute which can be added to articles to link to a page."
+}

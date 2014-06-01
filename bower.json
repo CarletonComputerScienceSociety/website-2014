@@ -8,6 +8,10 @@
   ],
   "dependencies": {
     "jquery": "~2.1.0",
-    "bootstrap": "~3.1.1"
+    "bootstrap": "~3.1.1",
+    "fullcalendar": "*"
+  },
+  "resolutions": {
+    "jquery": "~2.1.0"
   }
 }

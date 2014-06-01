@@ -4,6 +4,7 @@ html
     meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
     // bower:css
     link(rel='stylesheet', href='/bower_components/bootstrap/dist/css/bootstrap.css')
+    link(rel='stylesheet', href='/bower_components/socialfeed/socialfeed.css')
     // endbower
 
     link(rel='stylesheet', href='/css/style.css')
@@ -17,6 +18,8 @@ html
     // This is a fix for the affix script which keeps the nav-bar at the top
     script(src='/js/affixFix.js')
 
+    title #{title}
+    
     block head
 
     // Website content goes below here, in the container
@@ -29,26 +32,19 @@ html
             span.logo-block
               img(class=["img-responsive", "logo"], src="/img/ccssLogo.png")
               h1 Carleton Computer Science Society
-        .col-md-1.hidden-xs.hidden-sm
-        .col-md-2.hidden-xs.hidden-sm
-          div(class=["panel", "panel-default"])
-            .panel-heading Academic Events
-            .panel-body Stuff goes here!
-        .col-md-2.hidden-xs.hidden-sm
-          div(class=["panel", "panel-default"])
-            .panel-heading Social Events
-            .panel-body Stuff goes here!
-        .col-md-2.hidden-xs.hidden-sm
-          div(class=["panel", "panel-default"])
-            .panel-heading Academic Rep
-            .panel-body Stuff goes here!
-        .col-md-2.hidden-xs.hidden-sm
-          div(class=["panel", "panel-default"])
-            .panel-heading Connect with Us!
-            .panel-body Stuff goes here!
+        .col-md-6.hidden-xs.hidden-sm
+        .col-md-3.hidden-xs.hidden-sm
+          .well
+            h1 Connect with us!
+            a(href="https://www.facebook.com/CarletonComputerScienceSociety", target="_blank", alt="Connect With Us On Facebook!")
+              img.social(src="/img/facebook.png")
+            a(href="https://github.com/CarletonComputerScienceSociety", target="_blank", alt="Fork us on GitHub!")  
+              img.social(src="/img/github.png")
+            a(href="https://twitter.com/carletoncss", target="_blank", alt="Follow @carletoncss on twitter!")
+              img.social(src="/img/twitter.png")
       div(class=["affix-wrapper"], data-spy="affix", data-offset-top="160")
         .row#navbar-wrapper
-          nav(class=["navbar", "navbar-inverse"], id="nav", role="navigation")
+          nav(class=["navbar", "navbar-static-top", "navbar-inverse"], id="nav", role="navigation")
             .container-fluid
               .navbar-header
                 button(type="button", class="navbar-toggle", data-toggle="collapse", data-target="#navbar-content")
@@ -71,45 +67,61 @@ html
                     a(href="#", data-toggle="dropdown") Academics
                       b.caret
                     ul.dropdown-menu
-                      li: a(href="#") Academic Updates
-                      li: a(href="#") Course Quick Reference
+                      li: a(href="/courses") Course Quick Reference
                       li: a(href="/extrahelp") Getting Extra Help
                   li.dropdown
                     a(href="#", data-toggle="dropdown") Events
                       b.caret
                     ul.dropdown-menu
-                      li: a(href="#") Events Calendar
-                      li: a(href="#") Academic Events
-                      li: a(href="#") Social Events
-                      li: a(href="#") Event Minutes/Notes
+                      li: a(href="/events") Events Calendar
+                      li: a(href="https://github.com/CarletonComputerScienceSociety/minutes", target="_blank") Event Minutes/Notes
                   li.dropdown
                     a(href="#", data-toggle="dropdown") Get Involved
                       b.caret
                     ul.dropdown-menu
-                      li: a(href="#") Arcade Box Submissions
-                      li: a(href="#") Student Work Showcase
-                      li: a(href="#") Become a Volunteer
-                  li: a(href="#") Job Postings
-                  li: a(href="#") Forum
-                  li: a(href="#") Podcast
-                  li: a(href="https://github.com/CarletonComputerScienceSociety/website/wiki/") Wiki
+                      li: a(href="/arcadebox") Arcade Box Submissions
+                      li: a(href="/studentwork") Student Work Showcase
+                      li: a(href="/volunteer") Become a Volunteer
+                  li: a(href="/jobs") Job Postings
+                  li: a(href="/frosh") !Frosh
+                  li: a(href="https://github.com/CarletonComputerScienceSociety/website/wiki/", target="_blank") Wiki
       .row#content
         block content
       .row#footer
-        .col-sm-4
-          h1 Carleton Computer Science Society
-          p.
-            We, the CCSS, are the academic society at Carleton University for 
-            undergraduate computer science. We act as liason between student and
-            school for academics as well as provide social events for students to
-            enjoy. We also have a lounge in which students can relax and talk.
-          address
-            strong The Lounge, Office
-            br
-            span Carleton University, 1125 Colonel By Drive
-            br
-            span 4135HP (4th floor Herzberg Building)
-        .col-sm-4
-          p Sauce
-        .col-sm-4
-          p Test
+        .row
+          .col-sm-4
+            h1 Carleton Computer Science Society
+            p.
+              We, the CCSS, are the academic society at Carleton University for 
+              undergraduate computer science. We act as liason between student and
+              school for academics as well as provide social events for students to
+              enjoy. We also have a lounge in which students can relax and talk.
+            address
+              strong The Lounge, Office
+              br
+              span Carleton University, 1125 Colonel By Drive
+              br
+              span 4135HP (4th floor Herzberg Building)
+          .col-sm-4
+            h1 Site Links
+            ul
+              li: a(href="/about") About
+              li: a(href="/contact") Contact Us
+              li: a(href="/courses") Course Assistance
+              li: a(href="/extrahelp") Getting Extra Help
+              li: a(href="/events") Upcoming Events
+              li: a(href="/jobs") Job Postings
+              li: a(href="https://github.com/CarletonComputerScienceSociety/website/wiki/", target="_blank") Wiki
+          .col-sm-4
+            .well
+              h1 Most Recent Podcast
+              audio(controls)
+                source(src="assets/podcasts/001", type="audio/mpeg")
+                No audio available
+            p.
+              Website designed by #[a(href="http://www.linkedin.com/pub/connor-hillen/82/585/6b8", target="_blank") Connor Hillen]
+              and maintained by the CCSS executive team. 
+            p. 
+              #[a(href="https://github.com/CarletonComputerScienceSociety/website/issues/new", target="_blank") Report a Bug] |
+              #[a(href="https://github.com/CarletonComputerScienceSociety/website", target="_blank") Contribute]
+            

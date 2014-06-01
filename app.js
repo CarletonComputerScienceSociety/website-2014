@@ -34,18 +34,47 @@ app.get('/:id', function(req, res, next) {
   }
 });
 
+
+// A function taken from http://stackoverflow.com/questions/10865347/node-js-get-file-extension
+// It takes in a filename and returns the filetype. This is useful when trying
+// to provide special types which are handled differently in the browser
+// (audio files, PDF, etc.)
+
+function getExtension(filename) {
+    var i = filename.lastIndexOf('.');
+    return (i < 0) ? '' : filename.substr(i);
+}
+
 // This sets up the special /assets directory. All files in /assets can be accessed
 // by visiting /assets/foo.bar and can be linked as such. This shouldn't need to
 // be changed.
+
 
 app.get('/assets/:id', function(req, res, next) {
   if (req.params.id) {
     fs.readFile("public/assets/" + req.params.id, function(err, data) {
           if (err) { console.error("404 Error: Attempted to access ['assets/" + req.params.id + "']."); res.render('404'); }
           else {
+            // Right now, there's only PDF's on the website that we need to worry
+            // about.
+            if (getExtension(req.params.id) === ".pdf") {
+              res.contentType("application/pdf")
+            }
             res.send(data);
           }
         });
+  }
+});
+
+app.get('/assets/podcasts/:id', function(req, res, next) {
+  if (req.params.id) {
+    fs.readFile("public/assets/podcasts/CCSSPodcast"+req.params.id+".mp3", function(err, data) {
+      if (err) { console.error("404 Error: Attempted to access ['assets/podcasts/CCSSPodcast" + req.params.id + ".m[3']."); res.render('404'); }
+      else {
+        res.type("audio/mpeg");
+        res.send(data);
+      }
+    });
   }
 });
 

@@ -3,6 +3,7 @@ node_modules
 
 # Ignore Bower Components #
 public/bower_components
+public/assets/podcasts
 
 # Ignore Vim temp files #
 [._]*.s[a-w][a-z]
