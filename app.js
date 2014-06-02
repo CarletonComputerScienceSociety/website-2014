@@ -69,7 +69,7 @@ app.get('/assets/:id', function(req, res, next) {
 app.get('/assets/podcasts/:id', function(req, res, next) {
   if (req.params.id) {
     fs.readFile("public/assets/podcasts/CCSSPodcast"+req.params.id+".mp3", function(err, data) {
-      if (err) { console.error("404 Error: Attempted to access ['assets/podcasts/CCSSPodcast" + req.params.id + ".mp3."); res.render('404'); }
+      if (err) { console.error("404 Error: Attempted to access ['assets/podcasts/CCSSPodcast" + req.params.id + ".mp3"); res.render('404'); }
       else {
         res.type("audio/mpeg");
         res.send(data);
