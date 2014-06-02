@@ -80,4 +80,13 @@ pages['frosh'] = function(req, res) {
   res.render('frosh', {title: 'NotFrosh 2014' + titleSuffix, body: {}});
 };
 
+// The podcasts are stored in a json file similar to the news articles and uses
+// the same process
+pages['podcast'] = function(req, res) {
+  var podcasts = require('../podcasts'); 
+  res.render('podcast', { title: 'Podcast' + titleSuffix, body: {podcasts: podcasts.podcasts} });
+  var cachedName = require.resolve('../podcasts'); //Find the name in the require cache
+  delete require.cache[cachedName]; // Delete this so that it pulls the latest copy of the JSON file each time
+};  
+
 exports.pages = pages;

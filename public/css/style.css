@@ -95,6 +95,10 @@ a:hover {
   z-index: 1000;
 }
 
+.affix {
+  position: fixed; top: 0px; bottom: auto;
+}
+
 .nav .open > a, .nav .open > a:hover, .nav .open > a:focus  {
   border-color: #c33;
 }
@@ -247,4 +251,47 @@ header.student-work .developer {
 img.student-work {
   max-height: 500px;
   width: auto;
+}
+
+/* Podcasts */
+
+#podcasts .row {
+  border: thin solid #333;
+  padding: 10px;
+  margin: 10px;
+}
+
+#podcasts div[class*="col-"] {
+  margin: 0px 10px;
+}
+
+#podcasts audio {
+  width: 100%;
+}
+
+#podcasts .avatar {
+  text-align: center;
+  font-family: "Open Sans Condensed";
+  font-size: 1.4em;
+  font-weight: 800;
+}
+
+#podcasts .credits {
+  font-size: 0.8em;
+}
+
+#podcasts .content table {
+  width: 100%;
+}
+
+#podcasts .content td {
+  padding: 0px 10px;
+}
+
+#podcasts .content tr.description {
+  height: 90px;
+}
+
+#podcasts .avatar img {
+  max-width: 200px;
 }
