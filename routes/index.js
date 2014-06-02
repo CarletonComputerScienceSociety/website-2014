@@ -34,10 +34,8 @@ var pages = {};
 // are stored in ../newsArticles.json and are imported here and sent to be compiled
 // with jade.
 exports.index = function(req, res) {
-  var news = require('../newsArticles'); //Pull the JSON file with the articles
-  res.render('index', { title: 'Welcome' + titleSuffix, body: {articles: news.articles} });
-  var cachedName = require.resolve('../newsArticles'); //Find the name in the require cache
-  delete require.cache[cachedName]; // Delete this so that it pulls the latest copy of the JSON file each time
+  var data = readJSONFile('../data/newsArticles'); //Pull the JSON file with the articles
+  res.render('index', { title: 'Welcome' + titleSuffix, body: {articles: data.articles} });
 };
 
 pages['about'] = function(req, res) {
@@ -65,10 +63,8 @@ pages['arcadebox'] = function(req, res) {
 };
 
 pages['studentwork'] = function(req, res) {
-  var data = require('../data/studentwork'); 
+  var data = readJSONFile("../data/studentwork"); 
   res.render('studentwork', { title: 'Student Work' + titleSuffix, body: {projects: data.studentwork, imgdirectory: data.imgdirectory} });
-  var cachedName = require.resolve('../data/studentwork'); //Find the name in the require cache
-  delete require.cache[cachedName]; // Delete this so that it pulls the latest copy of the JSON file each time
 };
 
 pages['volunteer'] = function(req, res) {
@@ -76,7 +72,8 @@ pages['volunteer'] = function(req, res) {
 };
 
 pages['jobs'] = function(req, res) {
-  res.render('jobs', {title: 'Job Postings' + titleSuffix, body: {}});
+  var data = readJSONFile("../data/jobs");
+  res.render('jobs', {title: 'Job Postings' + titleSuffix, body: {jobs: data.jobs}});
 };
 
 pages['frosh'] = function(req, res) {
@@ -86,10 +83,20 @@ pages['frosh'] = function(req, res) {
 // The podcasts are stored in a json file similar to the news articles and uses
 // the same process
 pages['podcast'] = function(req, res) {
-  var podcasts = require('../podcasts'); 
-  res.render('podcast', { title: 'Podcast' + titleSuffix, body: {podcasts: podcasts.podcasts} });
-  var cachedName = require.resolve('../podcasts'); //Find the name in the require cache
-  delete require.cache[cachedName]; // Delete this so that it pulls the latest copy of the JSON file each time
+  var data = readJSONFile("../data/podcasts");
+  res.render('podcast', { title: 'Podcast' + titleSuffix, body: {podcasts: data.podcasts} });
 };  
 
 exports.pages = pages;
+
+// This function takes in a file name to a jason file, requires it, and returns 
+// it. It also finds the cached name and deletes it from the cache to ensure that
+// any new copies are loaded again, as by default require caches the file for 
+// speed purposes, but then the cache needs to be cleared for new versions to show
+// up
+function readJSONFile(filename) {
+  var data = require(filename);
+  var cachedName = require.resolve(filename);
+  delete require.cache[cachedName];
+  return data;
+}

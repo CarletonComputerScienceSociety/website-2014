@@ -1,0 +1,28 @@
+{
+  "jobs" : [
+              {
+                "title"   : "Web Scripting",
+                "company" : "Privacy Analytics",
+                "date"    : "June 2",
+                "link"    : "/assets/WebScripting.pdf"
+              },
+              {
+                "title"   : "Software Developer",
+                "company" : "Mobile Knowledge Systems",
+                "date"    : "May 23",
+                "link"    : "/assets/jobs-mobile1.pdf"
+              },
+              {
+                "title"   : "Platform Developer",
+                "company" : "Camcloud",
+                "date"    : "May 16",
+                "link"    : "http://www.camcloud.com/hr-platform-developer"
+              },
+              {
+                "title"   : "Mobile App Developer",
+                "company" : "Nature Canada",
+                "date"    : "May 15",
+                "link"    : "/assets/jobs-nature1.pdf"
+              }
+  ]
+}

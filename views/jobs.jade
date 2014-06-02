@@ -13,6 +13,5 @@ block content
     Please research the position and company further when applying or accepting employment.
   
   ul
-    li: strong #[a(href="/assets/jobs-mobile1.pdf", target="_blank") Software Developer] for Mobile Knowledge Systems (received May 23)
-    li: strong #[a(href="http://www.camcloud.com/hr-platform-developer", target="_blank") Platform Developer] for Camcloud (received May 16)
-    li: strong #[a(href="/assets/jobs-nature1.pdf", target="_blank") Mobile App Developer] for Nature Canada (received May 15)
+    each job in body.jobs
+      li: strong #[a(href=job.link, target="_blank") #{job.title}] for #{job.company} (received #{job.date})
