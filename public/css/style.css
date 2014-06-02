@@ -243,15 +243,19 @@ a:hover {
 
 /* Student Work */
 
-header.student-work .developer {
+#student-work header .developer {
   color: #888;
-  margin-top: -0.9em;
-  margin-left: 0.5em;
 } 
 
-img.student-work {
-  max-height: 500px;
+#student-work img {
+  max-height: 400px;
   width: auto;
+}
+
+#student-work .row {
+  margin: 15px 0px;
+  padding: 5px;
+  border: thin solid #444;
 }
 
 /* Podcasts */

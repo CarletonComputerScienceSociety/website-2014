@@ -65,7 +65,10 @@ pages['arcadebox'] = function(req, res) {
 };
 
 pages['studentwork'] = function(req, res) {
-  res.render('studentwork', {title: 'Student Work' + titleSuffix, body: {}});
+  var data = require('../data/studentwork'); 
+  res.render('studentwork', { title: 'Student Work' + titleSuffix, body: {projects: data.studentwork, imgdirectory: data.imgdirectory} });
+  var cachedName = require.resolve('../data/studentwork'); //Find the name in the require cache
+  delete require.cache[cachedName]; // Delete this so that it pulls the latest copy of the JSON file each time
 };
 
 pages['volunteer'] = function(req, res) {

@@ -1,0 +1,67 @@
+{
+  "studentwork" : [
+                    {
+                      "title"       : "Synonymizer",
+                      "author"      : {
+                                        "name" : "Martin Gingras",
+                                        "url"  : "http://mgingras.ca/"
+                                      },
+                      "url"  : "http://www.synonym-izer.com/",
+                      "host" : "Personal Website",
+                      "description" : "This is a program which takes inputted text and substitute words within it for their synonyms",
+                      "src"         : "Synonymizer.png"
+                    },
+                    {
+                      "title"       : "Be Your Own DJ",
+                      "author"      : {
+                                        "name" : "Martin Gingras",
+                                        "url"  : "http://mgingras.ca/"
+                                      },
+                      "url"  : "http://www.byo-dj.com/",
+                      "host" : "Personal Website",
+                      "description" : "Tired of having to figure out how to get both the music you want while satisfying your guests? Don't want to have to be a DJ at your own party or have to designate that role to someone then listen to their shitty music? This application allows you and your guests to collaboratively create a playlist that you can all enjoy.",
+                      "src"         : "BeYourOwnDJ.png"
+                    },
+                    {
+                      "title"       : "What's Cheaper",
+                      "author"      : {
+                                        "name" : "Abe Fehr"
+                                      },
+                      "url"  : "https://play.google.com/store/apps/details?id=com.abefehr.whatscheaper",
+                      "host" : "Google Play",
+                      "description" : "Get the better deal by comparing unit cost between items at the grocery store! Allows you to compare more than 2 items, sorts them in front of you, and indicates the best deal.",
+                      "src"         : "whatsapp.png"
+                    },
+                    {
+                      "title"       : "Carleton Places",
+                      "author"      : {
+                                        "name" : "Abe Fehr"
+                                      },
+                      "url"  : "https://play.google.com/store/apps/details?id=com.carletonplaces",
+                      "host" : "Google Play",
+                      "description" : "Thirsty for Timmies at 8pm on a Saturday night but don't know which Tims are open? This is the app for you! Based on the most up-to-date schedules, this app will tell you when various businesses on the Carleton University campus are open or closed. DISCLAIMER: This app may be inaccurate during exam season when CU Dining Services frequently changes the schedules and doesn't post them online.",
+                      "src"         : "carletonplaces.png"
+                    },
+                    {
+                      "title"       : "Qwikipedia",
+                      "author"      : {
+                                        "name" : "Ben Black"
+                                      },
+                      "url"  : "https://chrome.google.com/webstore/detail/qwikipedia/kbbfhhcbaaahidkajomclgljbilpijla",
+                      "host" : "Google Chrome Web Store",
+                      "description" : "Meet Qwikipedia! The quicker, more convenient way to browse Wikipedia. Anytime you encounter a blue term you'd like to know more about on a Wikipedia page, simply hover over it with your mouse to get a popup of the essential information about that item! Save time and computer resources with Qwikipedia.",
+                      "src"         : "qwikipedia.png"
+                    },
+                    {
+                      "title"       : "Base Converter",
+                      "author"      : {
+                                        "name" : "Kai Cheng"
+                                      },
+                      "url"  : "https://itunes.apple.com/us/app/base-converter!/id443588978",
+                      "host" : "App Store",
+                      "description" : "Base Converter is an easy to use utility app to convert number bases. It supports Decimal, Binary, Octal, and Hexadecimal. This simple design allows quick conversions with a delete and reset button.",
+                      "src"         : "baseconverter.png"
+                    }
+                  ],
+  "imgdirectory": "/img/studentwork/"
+}
