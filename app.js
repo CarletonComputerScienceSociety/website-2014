@@ -52,7 +52,7 @@ function getExtension(filename) {
 
 app.get('/assets/:id', function(req, res, next) {
   if (req.params.id) {
-    fs.readFile("public/assets/" + req.params.id, function(err, data) {
+    fs.readFile("/public/assets/" + req.params.id, function(err, data) {
           if (err) { console.error("404 Error: Attempted to access ['assets/" + req.params.id + "']."); res.render('404'); }
           else {
             // Right now, there's only PDF's on the website that we need to worry
@@ -68,7 +68,7 @@ app.get('/assets/:id', function(req, res, next) {
 
 app.get('/assets/podcasts/:id', function(req, res, next) {
   if (req.params.id) {
-    fs.readFile("public/assets/podcasts/CCSSPodcast"+req.params.id+".mp3", function(err, data) {
+    fs.readFile("/public/assets/podcasts/CCSSPodcast"+req.params.id+".mp3", function(err, data) {
       if (err) { console.error("404 Error: Attempted to access ['assets/podcasts/CCSSPodcast" + req.params.id + ".mp3"); res.render('404'); }
       else {
         res.type("audio/mpeg");
