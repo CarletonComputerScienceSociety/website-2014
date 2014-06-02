@@ -199,7 +199,8 @@ a:hover {
 .carousel-inner {
   background-color: #fff;
 }
-.carousel-inner > .item > img {
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
   margin: 0 auto;
 }
 
