@@ -39,7 +39,8 @@ exports.index = function(req, res) {
 };
 
 pages['about'] = function(req, res) {
-  res.render('about', {title: 'About Us' + titleSuffix, body: {} });
+  var data = readJSONFile("../data/execs");
+  res.render('about', {title: 'About Us' + titleSuffix, body: {execs: data.executives} });
 };
 
 pages['contact'] = function(req, res) {

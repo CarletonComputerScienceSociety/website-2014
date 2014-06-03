@@ -60,136 +60,42 @@ block content
       in after the fall term starts), and 1 president. The CCSS uses a portfolio
       system to establish duties. Each portfolio gives a list of duties and 
       recommendations for which the portfolio holding executive is in charge of.
-  .row.bio
-    .col-md-1.hidden-sm.hidden-xs
-    .col-md-1
-      .pic
-        img.pic(src="/img/connor-profile.jpg")
-    .col-md-9
-      table.table.table-condensed
-        tr
-          td Name:
-          td Connor Hillen
-        tr
-          td Email:
-          td connor.hillen@ccss.carleton.ca
-        tr
-          td Academic Standing
-          td 3rd Year, Robotics
-        tr
-          td Portfolio(s): 
-          td Academic Events, Technical
-        tr
-          td Role in the CCSS:
-          td To plan and coordinate events of academic nature including
-            | tech talks and workshops. To manage CCSS hardware and software
-            | components such as website and game servers.
-        tr
-          td Website:
-          td #[a(href="http://www.linkedin.com/pub/connor-hillen/82/585/6b8", target="_blank") LinkedIn], #[a(href="http://www.connorhillen.com/", target="_blank") www.connorhillen.com]
-        tr
-          td About
-          td 
-            p.
-              My name is Connor Hillen and I've been a CCSS executive for
-              three years running now. First, I was first-year representative,
-              then the event coordinator, and now I manage academic events
-              and technical, but I like to have my hand in everything. My
-              focus is to get the CCSS involved and informed, focus on 
-              documenting CCSS interactions for years to come, and to start
-              initiatives that withstand after I leave. Feel free to contact
-              me for just about anything CCSS or computer science related!
-  .row.bio
-    .col-md-1.hidden-sm.hidden-xs
-    .col-md-1
-      .pic
-        img(src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y")
-    .col-md-9
-      table.table.table-condensed
-        tr
-          td Name:
-          td Laura Alkhoury
-        tr
-          td Email:
-          td laura.alkhoury@ccss.carleton.ca
-        tr
-          td Academic Standing
-          td 3rd Year, Mobile Computing
-        tr
-          td Portfolio(s): 
-          td Social Media
-        tr
-          td Role in the CCSS:
-          td
-            p.
-              I use social media such as Facebook and Twitter to promote the CCSS 
-              and our social and academic events. I use those platforms to interact 
-              with fellow CS students to gain insight into what they care about, 
-              as well as feedback on what we're working on.
-        tr
-          td Website:
-          td #[a(href="http://www.linkedin.com/pub/laura-alkhoury/5b/498/8a7", target="_blank") LinkedIn]
-        tr
-          td About
-          td 
-            p.
-              When I'm not in Herzberg working on homework or hanging out in the 
-              CCSS lounge, you'll find me working from home as a Software Engineer 
-              for an engineering consulting firm. In my free time I cook, bake, 
-              and save Tamriel from those who seek to destroy her. Come say hi 
-              if you see me around!
-  .row.bio
-    .col-md-1.hidden-sm.hidden-xs
-    .col-md-1
-      .pic
-        img(src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y")
-    .col-md-9
-      table.table.table-condensed
-        tr
-          td Name:
-          td Sam Whiteley
-        tr
-          td Email:
-          td sam.whiteley@ccss.carleton.ca
-        tr
-          td Academic Standing
-          td 3rd Year, Security
-        tr
-          td Portfolio(s): 
-          td Secretary
-        tr
-          td Role in the CCSS:
-          td
-            p.
-              I make sure the communication grease is flowing as fast and as 
-              efficiently as possible (read: email harassment) Contact me if you 
-              need info about something and don't know exactly who to deal with!
-  .row.bio
-    .col-md-1.hidden-sm.hidden-xs
-    .col-md-1
-      .pic
-        img(src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y")
-    .col-md-9
-      table.table.table-condensed
-        tr
-          td Name:
-          td Terrence Anderson
-        tr
-          td Email:
-          td terrence.anderson@ccss.carleton.ca
-        tr
-          td Academic Standing
-          td 3rd Year
-        tr
-          td Portfolio(s): 
-          td Treasurer
-        tr
-          td Role in the CCSS:
-          td
-            p.
-              The treasurer manages the financial aspects of the society. The 
-              treasurer deals with budgeting, auditing, and ensuring the society's
-              funds are put to maximum potential.
+  each exec in body.execs
+    .row.bio
+      .col-md-2.hidden-sm.hidden-xs
+      .col-md-1
+        .pic
+          if exec.avatar
+            img.pic(src="/img/" + exec.avatar)
+          else
+            img(src="http://www.gravatar.com/avatar/00000000000000000000000000000000?d=mm&f=y")
+      .col-md-7
+        table.table.table-condensed
+          tr
+            td Name:
+            td #{exec.name}
+          tr
+            td Email:
+            td #[a(href="mailto:" + exec.email) #{exec.email}]
+          tr
+            td Academic Standing
+            td #{exec.standing}
+          tr
+            td Portfolio(s): 
+            td #{exec.portfolio}
+          tr
+            td Role in the CCSS:
+            td #{exec.role}
+          if exec.website
+            tr
+              td Website:
+              td #[a(href=exec.website, target="_blank") #{exec.website}]
+          if exec.about 
+            tr
+              td About
+              td 
+                p #{exec.about}
+      .col-md-2.hidden-sm.hidden-xs
 
   .row
     a#governance
