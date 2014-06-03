@@ -1,6 +1,22 @@
 {
   "executives" : [
     {
+      "name"     : "Lindsay Bangs",
+      "email"    : "president@ccss.carleton.ca",
+      "standing" : "3rd year, Mobile Computing",
+      "portfolio": "President",
+      "role"     : "I represent the Board of Directors for the CCSS, who in turn represent you!",
+      "website"  : "http://www.linkedin.com/pub/lindsay-bangs/82/25/129",
+      "about"    : "First and foremost, I love pictures of cats. I enjoy meeting new people and giving course advice, whether it's wanted or not.  You can probably find me in one of the labs in Herzberg, staring down my computer or scribbling all over whatever bits of paper are handy.  If not, I've probably gone for coffee."
+    },
+    {
+      "name"     : "Sam Whiteley",
+      "email"    : "sam.whiteley@ccss.carleton.ca",
+      "standing" : "3rd year, Security",
+      "portfolio": "Secretary",
+      "role"     : "I make sure the communication grease is flowing as fast and as efficiently as possible (read: email harassment) Contact me if you need info about something and don't know exactly who to deal with!"
+    },
+    {
       "name"     : "Connor Hillen",
       "email"    : "connor.hillen@ccss.carleton.ca",
       "avatar"   : "connor-profile.jpg",
@@ -20,18 +36,20 @@
       "about"    : "When I'm not in Herzberg working on homework or hanging out in the CCSS lounge, you'll find me working from home as a Software Engineer for an engineering consulting firm. In my free time I cook, bake, and save Tamriel from those who seek to destroy her. Come say hi if you see me around!"
     },
     {
-      "name"     : "Sam Whiteley",
-      "email"    : "sam.whiteley@ccss.carleton.ca",
-      "standing" : "3rd year, Security",
-      "portfolio": "Secretary",
-      "role"     : "I make sure the communication grease is flowing as fast and as efficiently as possible (read: email harassment) Contact me if you need info about something and don't know exactly who to deal with!"
-    },
-    {
       "name"     : "Terrence Anderson",
       "email"    : "terrence.anderson@ccss.carleton.ca",
       "standing" : "3rd year",
       "portfolio": "Treasurer",
       "role"     : "The treasurer manages the financial aspects of the society. The treasurer deals with budgeting, auditing, and ensuring the society's funds are put to maximum potential."
-    }    
+    },
+    {
+      "name"     : "Vinisha D'Souza",
+      "email"    : "vinisha.dsouza@ccss.carleton.ca",
+      "standing" : "2nd year, Software Engineering",
+      "portfolio": "Social Events",
+      "role"     : "My role is to plan and organize social events for computer science students.",
+      "website"  : "ca.linkedin.com/in/vinishadsouza/",
+      "about"    : "Hey there! My name is Vinisha D'Souza and this is my first time being part of the CCSS executive committee.I am currently an undergraduate student, and I aspire to become a successful software engineer one day.My goals for this year are to get more people involved, and to organize fun events that will benefit the social lives of students.Any Questions? Feel free to contact me!"
+    }
   ]
 }
