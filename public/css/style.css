@@ -154,6 +154,10 @@ a:hover {
   margin: 0px 30px;
 }
 
+#footer audio {
+  max-width: 100%;
+}
+
 #footer .well {
   color: #eee;
   background-color: #444;
