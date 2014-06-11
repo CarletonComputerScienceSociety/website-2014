@@ -1,6 +1,12 @@
 {
   "jobs" : [
               {
+                "title"   : "Application Developer",
+                "company" : "Graham Stirlin-Moffet",
+                "date"    : "June 11",
+                "link"    : "/assets/jobs-appdev.pdf"
+              },
+              {
                 "title"   : "Web Scripting",
                 "company" : "Privacy Analytics",
                 "date"    : "June 2",
