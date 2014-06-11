@@ -51,6 +51,15 @@
       "role"     : "My role is to plan and organize social events for computer science students.",
       "website"  : "ca.linkedin.com/in/vinishadsouza/",
       "about"    : "Hey there! My name is Vinisha D'Souza and this is my first time being part of the CCSS executive committee.I am currently an undergraduate student, and I aspire to become a successful software engineer one day.My goals for this year are to get more people involved, and to organize fun events that will benefit the social lives of students.Any Questions? Feel free to contact me!"
+    },
+    {
+      "name"     : "Abe Fehr",
+      "email"    : "abe.fehr@ccss.carleton.ca",
+      "standing" : "3rd year, Software Engineering",
+      "portfolio": "Academic Representative",
+      "role"     : "Represent the students at meetings relating to curriculum changes.",
+      "website"  : "http://www.abefehr.com/",
+      "about"    : "Hey, I'm an enthusiastic, third-year who enjoys programming, bowling and watching science videos."
     }
   ]
 }
