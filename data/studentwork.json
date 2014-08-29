@@ -1,6 +1,17 @@
 {
   "studentwork" : [
                     {
+                      "title"       : "Length Weight Converter",
+                      "author"      : {
+                                        "name" : "Eric Tran",
+                                        "url"  : "http://www.erictran.ca/"
+                                      },
+                      "url"  : "https://play.google.com/store/apps/details?id=ca.erictran.lengthweightconverter",
+                      "host" : "Google Play",
+                      "description" : "A simple Android app that converts between common length and weight units. Length Weight Converter is optimized for tablets and features a custom landscape mode.",
+                      "src"         : "lengthweight.png"
+                    },
+                    {
                       "title"       : "Synonymizer",
                       "author"      : {
                                         "name" : "Martin Gingras",
