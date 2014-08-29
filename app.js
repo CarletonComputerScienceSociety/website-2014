@@ -18,7 +18,7 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));  
 });
 
-app.all('/', routes.index);
+app.get('/', routes.index);
 
 // This sets up the URL routes that people can access for all basic URLs. If the
 // URL isn't found in our pages array, it responds with a 404 and logs the attempt
