@@ -18,7 +18,7 @@ app.configure(function(){
   app.use(express.static(path.join(__dirname, 'public')));  
 });
 
-app.get('/', routes.index);
+app.all('/', routes.index);
 
 // This sets up the URL routes that people can access for all basic URLs. If the
 // URL isn't found in our pages array, it responds with a 404 and logs the attempt
@@ -78,8 +78,64 @@ app.get('/assets/podcasts/:id', function(req, res, next) {
   }
 });
 
+app.post('/frosh', function (req, res) {
+  var config = require('./data/config.json');
+  var stripe = require("stripe")(config.stripePrivateKey)
+  var stripeToken = req.body.stripeToken;
+  
+  var charge = stripe.charges.create({
+    amount: 1500,
+    currency: "cad",
+    card: stripeToken,
+    description: "CCSS Presents NotFrosh"
+  }, function(err, charge) {
+    if (err && err.type === 'StripeCardError')
+    {
+      return;
+    }
+  });
+  
+  //Email address is configured in data/config.json
+  var nodemailer = require('nodemailer');
+  var transporter = nodemailer.createTransport({
+    service: 'Gmail',
+    auth: {
+      user: config.noreplyEmail, 
+      pass: config.noreplyPassword
+    }
+  });
+  
+  transporter.sendMail({
+    from: config.noreplyEmail,
+    to: req.body.stripeEmail,
+    bcc: config.volunteerEmail,
+    subject: 'NotFrosh - Ticket Purchase',
+    text: 'Hi,\n\nThank you for registering for !Frosh.\n\n' +
+          'You purchased a NotFrosh ticket ($15.00)\n' +
+          'Your ticket number is: *' + randomString(8) + '*\n\n' +
+          'Make sure to bring your ticket number to the event on September 6\n\n' +
+          'Contact matt.diener@ccss.carleton.ca with any questions about the event or about health and allergy concerns.\n\n' + 
+          'Enjoy NotFrosh!'
+  });
+});
+
 // Create the server and begin listening for connections
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));
 });
+
+function randomString(length) {
+    var chars = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+    var result = '';
+    for (var i = length; i > 0; --i) result += chars[Math.round(Math.random() * (chars.length - 1))];
+    return result;
+}
+
+function guid() {
+    function _p8(s) {
+        var p = (Math.random().toString(16)+"000000000").substr(2,8);
+        return s ? "-" + p.substr(0,4) + "-" + p.substr(4,4) : p ;
+    }
+    return _p8() + _p8(true) + _p8(true) + _p8();
+}

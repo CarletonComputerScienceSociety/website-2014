@@ -1,3 +1,6 @@
+# Ignore Website Wiki #
+website.wiki
+
 # Ignore Node Modules #
 node_modules
 
