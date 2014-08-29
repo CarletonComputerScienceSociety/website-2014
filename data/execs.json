@@ -60,6 +60,15 @@
       "role"     : "Represent the students at meetings relating to curriculum changes.",
       "website"  : "http://www.abefehr.com/",
       "about"    : "Hey, I'm an enthusiastic, third-year who enjoys programming, bowling and watching science videos."
+    },
+    {
+      "name"     : "Matthew Diener",
+      "email"    : "matt.diener@ccss.carleton.ca",
+      "standing" : "2nd year, Algorithms",
+      "portfolio": "Lounge, Office, Volunteers, Year Reps",
+      "role"     : "I manage the lounge and office, organize volunteers and find people to fill the Year Rep roles. My big goal for the year is to make everything CCSS seem awesome. Let me know if you have any ideas or suggestions.",
+      "website"  : "http://www.linkedin.com/pub/matt-diener/97/756/246",
+      "about"    : "I try to be as approachable as possible, so please come up to me and say hi. I'd love to hear from you!"
     }
   ]
 }
