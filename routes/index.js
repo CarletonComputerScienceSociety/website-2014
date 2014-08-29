@@ -78,7 +78,8 @@ pages['jobs'] = function(req, res) {
 };
 
 pages['frosh'] = function(req, res) {
-  res.render('frosh', {title: 'NotFrosh 2014' + titleSuffix, body: {}});
+  var config = require('../data/config.json');
+  res.render('frosh', {title: 'NotFrosh 2014' + titleSuffix, body: {stripePublicKey:config.stripePublicKey} });
 };
 
 // The podcasts are stored in a json file similar to the news articles and uses
