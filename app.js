@@ -91,6 +91,7 @@ app.post('/frosh', function (req, res) {
   }, function(err, charge) {
     if (err && err.type === 'StripeCardError')
     {
+      res.render("froshFailed", {body: { err: err } }); // just in case something weird happens and stripe can't handle it
       return;
     }
     var ticket = randomString(8);
