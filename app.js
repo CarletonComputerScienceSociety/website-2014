@@ -93,30 +93,36 @@ app.post('/frosh', function (req, res) {
     {
       return;
     }
+    var ticket = randomString(8);
+    res.render("froshConfirm", {body: { ticketCode: ticket } });
+    
+    //Email address is configured in data/config.json
+    var nodemailer = require('nodemailer');
+    var transporter = nodemailer.createTransport({
+      service: 'Gmail',
+      auth: {
+        user: config.noreplyEmail, 
+        pass: config.noreplyPassword
+      }
+    });
+    
+    transporter.sendMail({
+      from: config.noreplyEmail,
+      to: req.body.stripeEmail,
+      bcc: config.volunteerEmail,
+      subject: 'NotFrosh - Ticket Purchase',
+      text: 'Hi,\n\nThank you for registering for !Frosh.\n\n' +
+            'You purchased a NotFrosh ticket ($15.00)\n' +
+            'Your ticket number is: *' + ticket + '*\n\n' +
+            'Make sure to bring your ticket number to the event on September 6\n' +
+            'If you plan to receive a !Frosh t-shirt (included in ticket price) please send an email to Matt Diener (matt.diener@ccss.carleton.ca) with sizing information by 11:59PM Thursday, September 4th.\n' +
+            'You will be receiving more information about meeting up and what to bring prior to the event at this email address.\n\n' +
+            'Contact matt.diener@ccss.carleton.ca with any questions about the event or about health and allergy concerns.\n\n' + 
+            'Enjoy NotFrosh!'
+    });
   });
   
-  //Email address is configured in data/config.json
-  var nodemailer = require('nodemailer');
-  var transporter = nodemailer.createTransport({
-    service: 'Gmail',
-    auth: {
-      user: config.noreplyEmail, 
-      pass: config.noreplyPassword
-    }
-  });
   
-  transporter.sendMail({
-    from: config.noreplyEmail,
-    to: req.body.stripeEmail,
-    bcc: config.volunteerEmail,
-    subject: 'NotFrosh - Ticket Purchase',
-    text: 'Hi,\n\nThank you for registering for !Frosh.\n\n' +
-          'You purchased a NotFrosh ticket ($15.00)\n' +
-          'Your ticket number is: *' + randomString(8) + '*\n\n' +
-          'Make sure to bring your ticket number to the event on September 6\n\n' +
-          'Contact matt.diener@ccss.carleton.ca with any questions about the event or about health and allergy concerns.\n\n' + 
-          'Enjoy NotFrosh!'
-  });
 });
 
 // Create the server and begin listening for connections
