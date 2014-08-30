@@ -29,6 +29,20 @@ block content
   h2 How do I Register?
       
   p.
-    Online registration should be available very soon. If you do not feel comfortable with credit card payments
-    or would simply like to make other arrangements, you may contact Matt Diener at <a href='mailto:matt.diener@ccss.carleton.ca'>matt.diener@ccss.carleton.ca</a>
-    to set up an alternate payment method.
+    Just click the button below! You should receive an email shortly after registering.  
+      
+  script(src="https://checkout.stripe.com/checkout.js")
+  form(action="/frosh", method="post")
+    script(src="https://checkout.stripe.com/checkout.js",
+           class="stripe-button",
+           data-key="#{body.stripePublicKey}",
+           data-image="../img/ccssIco.png",
+           data-name="CCSS",
+           data-description="NotFrosh",
+           data-amount="1500",
+           data-label="Register Now!",
+           data-allow-remember-me="false")
+  
+  p.
+    <br/>If you are not comfortable paying by credit card, contact Matt Diener at <a href='mailto:matt.diener@ccss.carleton.ca'>matt.diener@ccss.carleton.ca</a> to arrange an alternative payment method.
+  
