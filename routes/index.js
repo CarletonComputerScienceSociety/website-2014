@@ -93,6 +93,18 @@ pages['codeathon'] = function(req, res) {
   res.render('codeathon');
 }
 
+pages['wiki'] = function(req, res) {
+  res.redirect('http://ccss.carleton.ca:81/mediawiki/index.php');
+};
+
+pages['forum'] = function(req, res) {
+  res.redirect('http://ccss.carleton.ca:82');
+};
+
+pages['forums'] = function(req, res) {
+  res.redirect('http://ccss.carleton.ca:82');
+};
+
 exports.pages = pages;
 
 // This function takes in a file name to a jason file, requires it, and returns
