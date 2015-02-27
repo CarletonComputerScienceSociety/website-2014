@@ -28,7 +28,7 @@
 
 var titleSuffix = " | Carleton Computer Science Society"; //Added to the end of each title
 
-var pages = {}; 
+var pages = {};
 
 // The index page contains a news ticker. All of the articles of the news ticker
 // are stored in ../newsArticles.json and are imported here and sent to be compiled
@@ -64,7 +64,7 @@ pages['arcadebox'] = function(req, res) {
 };
 
 pages['studentwork'] = function(req, res) {
-  var data = readJSONFile("../data/studentwork"); 
+  var data = readJSONFile("../data/studentwork");
   res.render('studentwork', { title: 'Student Work' + titleSuffix, body: {projects: data.studentwork, imgdirectory: data.imgdirectory} });
 };
 
@@ -87,13 +87,17 @@ pages['frosh'] = function(req, res) {
 pages['podcast'] = function(req, res) {
   var data = readJSONFile("../data/podcasts");
   res.render('podcast', { title: 'Podcast' + titleSuffix, body: {podcasts: data.podcasts} });
-};  
+};
+
+pages['codeathon'] = function(req, res) {
+  res.render('codeathon');
+}
 
 exports.pages = pages;
 
-// This function takes in a file name to a jason file, requires it, and returns 
+// This function takes in a file name to a jason file, requires it, and returns
 // it. It also finds the cached name and deletes it from the cache to ensure that
-// any new copies are loaded again, as by default require caches the file for 
+// any new copies are loaded again, as by default require caches the file for
 // speed purposes, but then the cache needs to be cleared for new versions to show
 // up
 function readJSONFile(filename) {
