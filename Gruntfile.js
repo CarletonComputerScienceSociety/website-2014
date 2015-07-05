@@ -88,7 +88,7 @@ module.exports = function (grunt) {
       less: {
         files: [
           '<%= yeoman.client %>/{app,components}/**/*.less'],
-        tasks: ['less', 'autoprefixer']
+        tasks: ['less', 'postcss']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -170,9 +170,14 @@ module.exports = function (grunt) {
     },
 
     // Add vendor prefixed styles
-    autoprefixer: {
+    postcss: {
       options: {
-        browsers: ['last 1 version']
+        map: true,
+        processors: [
+          require('pixrem')(),
+          require('autoprefixer-core')({browsers: 'last 2 versions'}),
+          require('cssnano')()
+        ]
       },
       dist: {
         files: [{
@@ -568,11 +573,11 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
-        'injector:less', 
+        'injector:less',
         'concurrent:server',
         'injector',
         'wiredep',
-        'autoprefixer',
+        'postcss',
         'concurrent:debug'
       ]);
     }
@@ -580,11 +585,11 @@ module.exports = function (grunt) {
     grunt.task.run([
       'clean:server',
       'env:all',
-      'injector:less', 
+      'injector:less',
       'concurrent:server',
       'injector',
       'wiredep',
-      'autoprefixer',
+      'postcss',
       'express:dev',
       'wait',
       'open',
@@ -610,10 +615,10 @@ module.exports = function (grunt) {
       return grunt.task.run([
         'clean:server',
         'env:all',
-        'injector:less', 
+        'injector:less',
         'concurrent:test',
         'injector',
-        'autoprefixer',
+        'postcss',
         'karma'
       ]);
     }
@@ -623,11 +628,11 @@ module.exports = function (grunt) {
         'clean:server',
         'env:all',
         'env:test',
-        'injector:less', 
+        'injector:less',
         'concurrent:test',
         'injector',
         'wiredep',
-        'autoprefixer',
+        'postcss',
         'express:dev',
         'protractor'
       ]);
@@ -641,12 +646,12 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean:dist',
-    'injector:less', 
+    'injector:less',
     'concurrent:dist',
     'injector',
     'wiredep',
     'useminPrepare',
-    'autoprefixer',
+    'postcss',
     'ngtemplates',
     'concat',
     'ngAnnotate',
