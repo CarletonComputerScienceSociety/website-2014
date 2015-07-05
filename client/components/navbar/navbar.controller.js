@@ -3,9 +3,22 @@
 angular.module('websiteApp')
   .controller('NavbarCtrl', function ($scope, $location) {
     $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
+      'title': 'News',
+      'link': '#'
+    },
+    {
+      'title': 'Useful Links',
+      'link': '#'
+    },
+    {
+      'title': 'Executives',
+      'link': '#'
+    },
+    {
+      'title': 'Get Involved',
+      'link': '#'
+    }
+    ];
 
     $scope.isCollapsed = true;
 
