@@ -6,7 +6,6 @@
   background-size: cover;
   color: rgba(255,255,255,0.8);
 
-
   .banner {
     width: 80%;
     margin: 10px auto;
@@ -29,17 +28,20 @@
     flex-flow: row wrap;
     justify-content: space-between;
 
-    width: 60%;
+    width: 80%;
 
     li {
       flex: 0 0 auto;
+
+      padding: 6px;
+      margin: 0px 14px 10px 14px;
 
       a {
         text-decoration: none;
         color: rgba(255,255,255,0.8);
 
         &:hover, &:focus {
-          color: @color-grey;
+          color: fadeout(@color-red, 25%);
         }
       }
     }
