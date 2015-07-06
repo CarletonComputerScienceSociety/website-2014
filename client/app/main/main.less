@@ -11,20 +11,6 @@
     width: 80%;
     margin: 10px auto;
   }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 10px auto;
-    width: 80%;
-    display: flex;
-    flex-flow: row wrap;
-    li {
-      flex: 1 0 auto;
-      display: inline-block;
-    }
-  }
-
 }
 
 .panel {
@@ -33,4 +19,29 @@
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+
+  ul.icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    width: 60%;
+
+    li {
+      flex: 0 0 auto;
+
+      a {
+        text-decoration: none;
+        color: rgba(255,255,255,0.8);
+
+        &:hover, &:focus {
+          color: @color-grey;
+        }
+      }
+    }
+  }
 }
