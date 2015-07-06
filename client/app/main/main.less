@@ -1,23 +1,35 @@
 
-.head-panel {
-  text-align: center;
-
-  background-image: url('../../assets/images/TechTalk.png');
-  background-size: cover;
-  color: rgba(255,255,255,0.8);
-
-  .banner {
-    width: 80%;
-    margin: 10px auto;
-  }
-}
-
 .panel {
+  z-index: -1;
+  position: relative;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+
+  background: @color-white-dark;
+  border-bottom: 2px solid @color-red;
+
+  header {
+    position: absolute;
+    top: -39px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: 35px;
+    width: 200px;
+    background: @color-white-dark;
+    border: 2px solid @color-red;
+    border-bottom: 2px solid @color-white-dark;
+
+    border-radius: 8px 8px 0 0;
+
+    h1 {
+      margin: 4px 0 0 0;
+      text-align: center;
+    }
+  }
 
   ul.icon-list {
     list-style: none;
@@ -26,12 +38,12 @@
 
     display: flex;
     flex-flow: row wrap;
-    justify-content: space-between;
+    justify-content: center;
 
     width: 80%;
 
     li {
-      flex: 0 0 auto;
+      flex: 1 0 auto;
 
       padding: 6px;
       margin: 0px 14px 10px 14px;
@@ -47,3 +59,30 @@
     }
   }
 }
+
+.panel:nth-child(odd) {
+  background: @color-grey-dark;
+  color: rgba(255,255,255,0.8);
+  header {
+    border-bottom: 2px solid @color-grey-dark;
+    background: @color-grey-dark;
+  }
+}
+
+.head-panel {
+  text-align: center;
+
+  background-image: url('../../assets/images/TechTalk.png');
+  background-size: cover;
+  color: rgba(255,255,255,0.8);
+
+  .banner {
+    width: 80%;
+    margin: 100px auto 10px auto;
+  }
+
+  & > * {
+    margin-top: 0;
+  }
+}
+
