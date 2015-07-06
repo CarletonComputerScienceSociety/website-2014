@@ -4,21 +4,30 @@ angular.module('websiteApp')
   .controller('NavbarCtrl', function ($scope, $location) {
     $scope.menu = [{
       'title': 'News',
-      'link': '#'
+      'link': '#news'
     },
     {
-      'title': 'Useful Links',
-      'link': '#'
+      'title': 'Resources',
+      'link': '#resources'
     },
     {
       'title': 'Executives',
-      'link': '#'
+      'link': '#executives'
     },
     {
       'title': 'Get Involved',
-      'link': '#'
+      'link': '#get-involved'
     }
     ];
+
+    $scope.goto = function(hash) {
+      // set the location.hash to the id of
+      // the element you wish to scroll to.
+      $location.hash('bottom');
+
+      // call $anchorScroll()
+      $anchorScroll();
+    };
 
     $scope.isCollapsed = true;
 
