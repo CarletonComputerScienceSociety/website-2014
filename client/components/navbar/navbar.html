@@ -2,7 +2,7 @@
   <div class="navbar">
     <ul>
       <li ng-repeat="item in menu">
-        <a ng-href="{{item.link}}" alt="{{item.title}}">{{item.title}}</a>
+      <a ng-href="{{item.link}}" alt="{{item.title}}" scroll-to-id="{{item.link}}">{{item.title}}</a>
       </li>
       <li>|</li>
       <li><a href="/forum" alt="CCSS Forum" target="_blank">Forum</a></li>
