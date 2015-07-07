@@ -114,9 +114,9 @@
 .execs {
   display: flex;
   flex-flow: row wrap;
-  justify-content: center;
+  justify-content: space-around;
   .exec {
-    flex: 0 1 200px;
+    flex: 1 0 20%;
 
     text-align: center;
     padding: 10px;
@@ -128,5 +128,12 @@
     i {
       font-size: 2em;
     }
+  }
+}
+
+//TODO: make the media queries accurate, not just for testing.
+@media screen and (max-width: 400px) {
+  .execs .exec {
+    flex: 1 0 80%;
   }
 }
