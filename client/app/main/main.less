@@ -28,7 +28,7 @@
       color: @color-grey;
       text-decoration: none;
 
-      &:hover {
+      &:hover, &:focus {
         color: @color-grey-dark;
       }
     }
@@ -82,7 +82,7 @@
     a {
       color: @color-grey-light;
 
-      &:hover {
+      &:hover, &:focus {
         color: @color-grey;
       }
     }
@@ -127,6 +127,47 @@
 
     i {
       font-size: 2em;
+    }
+  }
+}
+
+.resources {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  .resource {
+    flex: 1 0 40%;
+
+    text-align: center;
+    padding: 10px;
+    margin: 0 10px;
+    margin-top: 30px;
+    border: 1px solid @color-grey;
+    border-radius: 8px;
+
+    a {
+      color: @color-grey-dark;
+
+      &:hover, &:active, &:focus {
+        color: @color-red;
+      }
+      h2 {
+        margin: 0;
+      }
+      i {
+        width: 100%; /* this expands where you can click */
+        margin-top: 10px;
+      }
+    }
+
+    p {
+      text-align: justify;
+      color: @color-grey-dark;
     }
   }
 }
