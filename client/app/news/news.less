@@ -19,16 +19,29 @@
   }
 
   .news-articles {
-    position: relative;
     width: 96%;
     height: calc(~'98% - 50px');
     margin: 0 auto;
-    border: 1px dotted @color-grey; /* this is for testing purposes */
+    border: 1px dotted @color-grey; /* TODO: remove once testing finished */
 
     ul {
       list-style: none;
       padding: 0;
       margin: 0;
+      position: relative;
+      width: 100%;
+      height: 100%;
+
+      li {
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0;
+      }
+
+      li.active {
+        opacity: 1;
+      }
     }
   }
 }
