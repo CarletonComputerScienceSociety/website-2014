@@ -24,6 +24,19 @@
    font-weight: 300;
  }
 
+ a {
+   text-decoration: none;
+   color: @color-grey;
+
+   &:link, &:visited {
+     color: @color-grey;
+   }
+
+   &:hover, &:focus, &:active {
+     color: @color-red;
+   }
+ }
+
 // injector
 @import 'back-to-top/back-to-top.less';
 @import 'defaults.less';
