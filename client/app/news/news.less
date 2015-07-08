@@ -1,0 +1,34 @@
+.news-widget {
+  width: 100%;
+  height: 100%;
+
+  border: 2px solid @color-white-dark;
+  border-radius: 8px;
+
+  .news-nav {
+    text-align: center;
+    font-size: 16px;
+    margin: 10px auto;
+
+    a.left {
+      padding-right: 40px;
+    }
+    a.right {
+      padding-left: 40px;
+    }
+  }
+
+  .news-articles {
+    position: relative;
+    width: 96%;
+    height: calc(~'98% - 50px');
+    margin: 0 auto;
+    border: 1px dotted @color-grey; /* this is for testing purposes */
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  }
+}
