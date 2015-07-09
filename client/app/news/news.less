@@ -22,7 +22,6 @@
     width: 96%;
     height: calc(~'98% - 50px');
     margin: 0 auto;
-    border: 1px dotted @color-grey; /* TODO: remove once testing finished */
 
     ul {
       list-style: none;
@@ -40,12 +39,45 @@
         z-index: 0;
         height: 100%;
         overflow-y: auto;
+        transition: opacity 1s linear;
       }
 
       li.active {
         opacity: 1;
         z-index: 5;
       }
+    }
+
+    .article {
+
+      h1, h2, h3, h4, h5, h6, p {
+        margin-top: 0;
+      }
+
+      h1 {
+        font-size: 2em;
+      }
+
+      h1:first-child {
+        text-decoration: underline;
+      }
+
+      p {
+        text-align: justify;
+      }
+
+      img {
+        float: left;
+        max-width: 50%;
+      }
+
+      h1.authorship {
+        color: fadeout(lighten(@color-red, 20%), 20%);
+        margin: 0;
+        font-size: 1.2em;
+        text-decoration: none;
+      }
+
     }
   }
 }
