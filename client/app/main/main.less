@@ -28,7 +28,7 @@
       color: @color-grey;
       text-decoration: none;
 
-      &:hover, &:focus {
+      &:hover {
         color: @color-grey-dark;
       }
     }
@@ -60,7 +60,7 @@
         text-decoration: none;
         color: rgba(255,255,255,0.8);
 
-        &:hover, &:focus {
+        &:hover {
           color: fadeout(@color-red, 25%);
         }
       }
@@ -82,7 +82,7 @@
     a {
       color: @color-grey-light;
 
-      &:hover, &:focus {
+      &:hover {
         color: @color-grey;
       }
     }
@@ -139,14 +139,13 @@
     a {
       color: @color-grey-dark;
 
-      &:hover, &:active, &:focus {
+      &:hover, &:active {
         color: @color-red;
       }
       h2 {
         margin: 0;
       }
       i {
-        width: 100%; /* this expands where you can click */
         margin-top: 10px;
       }
     }
