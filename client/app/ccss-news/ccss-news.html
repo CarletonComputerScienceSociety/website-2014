@@ -1,1 +1,5 @@
-<div>this is the ccssNews directive</div>
+<article class="article">
+  <h1 class="authorship" ng-show="author">{{author}} - <span>{{published}}</span></h1>
+  <btf-markdown ng-include="article">
+  </btf-markdown>
+</article>
