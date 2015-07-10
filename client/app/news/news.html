@@ -1,0 +1,31 @@
+<div ng-controller="NewsCtrl" class="news-widget">
+
+  <nav class="news-nav">
+    <a href="#0" class="left" ng-click="prev()">
+      <i class="fa fa-arrow-left"></i>
+      <span>Previous</span>
+    </a>
+    <span>{{currArticle}} / {{numArticles}}</span>
+    <a href="#0" class="right" ng-click="next()">
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;Next</span>
+      <i class="fa fa-arrow-right"></i>
+    </a>
+  </nav>
+
+  <div class="news-articles">
+    <ul>
+      <li>
+        <ccss-news author="lorum" published="July 8th, 1648"
+          article="assets/articles/news-test-1.mkd">
+        </ccss-news>
+      </li>
+      <li>
+        <ccss-news article="assets/articles/news-test-2.mkd"></ccss-news>
+      </li>
+      <li>
+        <ccss-news article="assets/articles/news-test-3.mkd"></ccss-news>
+      </li>
+    </ul>
+  </div>
+
+</div>
