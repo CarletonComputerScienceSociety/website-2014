@@ -4,7 +4,7 @@ angular.module('websiteApp')
   .controller('NewsCtrl', function ($scope) {
 
     //ul that contains all the li for articles
-    var articles = $('.news-widget .news-articles ul');
+    var articles = angular.element('.news-widget .news-articles ul');
 
     //add and remove class to elements for display purposes
     var activate = function(index) {
