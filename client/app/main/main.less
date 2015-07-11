@@ -2,11 +2,12 @@
 .panel {
   position: relative;
   width: 100%;
-  min-height: 100vh;
+  min-height: calc(~'100vh - 2px');
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
 
+  color: @color-grey-dark;
   background: @color-white-dark;
   border-bottom: 2px solid @color-red;
 
@@ -173,6 +174,34 @@
 
     i {
       font-size: 2em;
+    }
+  }
+}
+
+.get-involved {
+
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+
+  .method {
+    flex: 0 0 auto;
+
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid @color-grey;
+    border-radius: 8px;
+
+    .label {
+      h2 {
+        display: inline-block;
+        margin: 10px;
+      }
+      i {
+      }
+    }
+    p {
+      margin: 0;
     }
   }
 }
