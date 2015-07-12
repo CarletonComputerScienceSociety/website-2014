@@ -73,6 +73,10 @@
   margin-bottom: 44px;
 }
 
+.panel > section:nth-child(2) {
+  margin-top: 30px;
+}
+
 .panel:nth-child(odd) {
   background: @color-grey-dark;
   color: rgba(255,255,255,0.8);
@@ -130,10 +134,9 @@
   .resource {
     flex: 1 0 40%;
 
-    text-align: center;
     padding: 10px;
     margin: 0 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     border: 1px solid @color-grey;
     border-radius: 8px;
 
@@ -144,16 +147,15 @@
         color: @color-red;
       }
       h2 {
-        margin: 0;
-      }
-      i {
-        margin-top: 10px;
+        display: inline-block;
+        margin: 10px;
       }
     }
 
     p {
       text-align: justify;
       color: @color-grey-dark;
+      margin: 0;
     }
   }
 }
@@ -168,7 +170,7 @@
     text-align: center;
     padding: 10px;
     margin: 0 10px;
-    margin-top: 30px;
+    margin-top: 20px;
     border: 1px solid @color-grey-light;
     border-radius: 8px;
 
@@ -181,14 +183,15 @@
 .get-involved {
 
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   justify-content: space-around;
 
   .method {
-    flex: 0 0 auto;
+    flex: 1 0 40%;
 
     padding: 10px;
-    margin: 10px;
+    margin: 0 10px;
+    margin-top: 20px;
     border: 1px solid @color-grey;
     border-radius: 8px;
 
@@ -201,6 +204,7 @@
       }
     }
     p {
+      text-align: justify;
       margin: 0;
     }
   }
