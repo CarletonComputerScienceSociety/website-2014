@@ -5,7 +5,8 @@ angular.module('websiteApp', [
   'ngResource',
   'ngSanitize',
   'ui.router',
-  'btford.markdown'
+  'btford.markdown',
+  'ngHamburger'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
     $urlRouterProvider
