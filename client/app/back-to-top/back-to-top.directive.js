@@ -11,12 +11,20 @@ angular.module('websiteApp')
         var offset = 250;
         var duration = 300;
         element.css('display', 'none');
+
+        var fadeFunc = function() {
+          if($(window).scrollTop() > offset) {
+            element.fadeIn(duration);
+          } else {
+            element.fadeOut(duration);
+          }
+        }
         $(window).scroll(function() {
-            if ($(this).scrollTop() > offset) {
-                element.fadeIn(duration);
-            } else {
-                element.fadeOut(duration);
-            }
+          var $this = $(this);
+          if($this.data('scrollTimeout')) {
+            clearTimeout($this.data('scrollTimeout'));
+          }
+          $this.data('scrollTimeout', setTimeout(fadeFunc, 100));
         });
 
         element.click(function(event) {

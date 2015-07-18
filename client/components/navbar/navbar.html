@@ -4,6 +4,9 @@
       <hamburger-toggle class="nav-toggle" state="navOpen"></hamburger-toggle>
     </div>
     <ul class="nav-list" ng-class="{open: navOpen}">
+      <li>
+        <back-to-top></back-to-top>
+      </li>
       <li ng-repeat="item in menu">
         <a ng-href="{{item.link}}" alt="{{item.title}}" scroll-to-id="{{item.link}}">{{item.title}}</a>
       </li>
