@@ -29,7 +29,7 @@ angular.module('websiteApp')
       $anchorScroll();
     };
 
-    $scope.isCollapsed = true;
+    $scope.navOpen = false;
 
     $scope.isActive = function(route) {
       return route === $location.path();

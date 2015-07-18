@@ -1,14 +1,16 @@
 <div ng-controller="NavbarCtrl">
   <div class="navbar">
-    <ul>
+    <div class="nav-header">
+      <hamburger-toggle class="nav-toggle" state="navOpen"></hamburger-toggle>
+    </div>
+    <ul class="nav-list" ng-class="{open: navOpen}">
       <li ng-repeat="item in menu">
-      <a ng-href="{{item.link}}" alt="{{item.title}}" scroll-to-id="{{item.link}}">{{item.title}}</a>
+        <a ng-href="{{item.link}}" alt="{{item.title}}" scroll-to-id="{{item.link}}">{{item.title}}</a>
       </li>
-      <li>|</li>
+      <li class="divider"></li>
       <li><a href="/forum" alt="CCSS Forum" target="_blank">Forum</a></li>
       <li><a href="/wiki" alt="CCSS Wiki" target="_blank">Wiki</a></li>
       <li><a href="http://scs.carleton.ca/" alt="Carleton Universty School of Computer Science" target="_blank">SCS</a></li>
     </ul>
-
   </div>
 </div>
