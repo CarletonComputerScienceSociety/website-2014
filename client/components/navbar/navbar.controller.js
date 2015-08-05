@@ -11,8 +11,8 @@ angular.module('websiteApp')
       'link': '#resources'
     },
     {
-      'title': 'Executives',
-      'link': '#executives'
+      'title': 'Governance',
+      'link': '#governance'
     },
     {
       'title': 'Get Involved',
