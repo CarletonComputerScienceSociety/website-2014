@@ -165,7 +165,7 @@
   flex-flow: row wrap;
   justify-content: space-around;
   .exec {
-    flex: 1 0 20%;
+    flex: 0 0 calc(~'25% - 42px');
 
     text-align: center;
     padding: 10px;
@@ -174,8 +174,11 @@
     border: 1px solid @color-grey-light;
     border-radius: 8px;
 
-    i {
-      font-size: 2em;
+    h2 {
+      margin: 0 0 10px 0;
+    }
+    p {
+      margin-bottom: 0;
     }
   }
 }
@@ -211,8 +214,14 @@
 }
 
 //TODO: make the media queries accurate, not just for testing.
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 767px) {
   .execs .exec {
-    flex: 1 0 80%;
+    flex: 0 0 calc(~'50% - 42px');
+  }
+}
+
+@media screen and (max-width: 374px) {
+  .execs .exec {
+    flex: 0 0 calc(~'100% - 42px');
   }
 }
