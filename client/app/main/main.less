@@ -1,0 +1,233 @@
+
+.panel {
+  position: relative;
+  width: 100%;
+  min-height: calc(~'100vh - 2px');
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+
+  color: @color-grey-dark;
+  background: @color-white-dark;
+  border-bottom: 2px solid @color-red;
+
+  header {
+    position: absolute;
+    top: -39px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    height: 35px;
+    width: 200px;
+    background: @color-white-dark;
+    border: 2px solid @color-red;
+    border-bottom: 2px solid @color-white-dark;
+
+    border-radius: 8px 8px 0 0;
+
+    a {
+      color: @color-grey;
+      text-decoration: none;
+
+      &:hover {
+        color: @color-grey-dark;
+      }
+    }
+
+    h1 {
+      margin: 4px 0 0 0;
+      text-align: center;
+    }
+  }
+
+  ul.icon-list {
+    list-style: none;
+    padding: 0;
+    margin: 15px auto 39px auto;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+
+    width: 80%;
+    text-align: center;
+
+    li {
+      flex: 1 0 auto;
+
+      padding: 6px;
+      margin: 0px 14px 10px 14px;
+
+      a {
+        text-decoration: none;
+        color: rgba(255,255,255,0.8);
+
+        &:hover {
+          color: fadeout(@color-red, 25%);
+        }
+      }
+    }
+  }
+}
+
+.panel > *:last-child {
+  margin-bottom: 44px;
+}
+
+.panel > section:nth-child(2) {
+  margin-top: 30px;
+}
+
+.panel:nth-child(odd) {
+  background: @color-grey-dark;
+  color: rgba(255,255,255,0.8);
+  header {
+    border-bottom: 2px solid @color-grey-dark;
+    background: @color-grey-dark;
+
+    a {
+      color: @color-grey-light;
+
+      &:hover {
+        color: @color-grey;
+      }
+    }
+
+  }
+}
+
+.panel .intro {
+  width: 94%;
+  margin: 0 auto;
+}
+
+.head-panel {
+  text-align: center;
+
+  background-image: url('../../assets/images/TechTalk.png');
+  background-size: cover;
+  color: rgba(255,255,255,0.8);
+
+  .banner {
+    width: 80%;
+    margin: 100px auto 10px auto;
+  }
+
+  h1 {
+    letter-spacing: 2px;
+  }
+
+  & > * {
+    margin-top: 0;
+  }
+}
+
+.news {
+  height: calc(~'100vh - 94px');
+  width: 95%;
+  margin: 50px auto 44px auto;
+}
+
+.resources {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  p {
+    margin-bottom: 5px;
+  }
+
+  .resource {
+    flex: 1 0 40%;
+
+    padding: 10px;
+    margin: 0 10px;
+    margin-top: 20px;
+    border: 1px solid @color-grey;
+    border-radius: 8px;
+
+    a {
+      color: @color-grey-dark;
+
+      &:hover, &:active {
+        color: @color-red;
+      }
+      h2 {
+        display: inline-block;
+        margin: 10px;
+      }
+    }
+
+    p {
+      text-align: justify;
+      color: @color-grey-dark;
+      margin: 0;
+    }
+  }
+}
+
+.directors {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  .director {
+    flex: 0 0 calc(~'25% - 42px');
+
+    text-align: center;
+    padding: 10px;
+    margin: 0 10px;
+    margin-top: 20px;
+    border: 1px solid @color-grey-light;
+    border-radius: 8px;
+
+    h2 {
+      margin: 0 0 10px 0;
+    }
+    p {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.get-involved {
+
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  .method {
+    flex: 1 0 40%;
+
+    padding: 10px;
+    margin: 0 10px;
+    margin-top: 20px;
+    border: 1px solid @color-grey;
+    border-radius: 8px;
+
+    .label {
+      h2 {
+        display: inline-block;
+        margin: 10px;
+      }
+      i {
+      }
+    }
+    p {
+      text-align: justify;
+      margin: 0;
+    }
+  }
+}
+
+//TODO: make the media queries accurate, not just for testing.
+@media screen and (max-width: 767px) {
+  .directors .director {
+    flex: 0 0 calc(~'50% - 42px');
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .directors .director {
+    flex: 0 0 calc(~'100% - 42px');
+  }
+}

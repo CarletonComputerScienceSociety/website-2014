@@ -1,0 +1,48 @@
+
+@import 'font-awesome/less/font-awesome.less';
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,300);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700);
+
+@fa-font-path: '/bower_components/font-awesome/fonts';
+
+/**
+ * App-wide Styles
+ */
+ html, body {
+   margin: 0;
+   padding: 0;
+   width: 100%;
+ }
+
+ body {
+   font-family: 'Open Sans', sans-serif;
+   position: relative;
+ }
+
+ h1, h2 {
+   font-family: 'Open Sans Condensed', sans-serif;
+   font-weight: 300;
+ }
+
+ a {
+   text-decoration: none;
+   color: @color-grey;
+
+   &:link, &:visited {
+     color: @color-grey;
+   }
+
+   &:hover, &:active {
+     color: @color-red;
+   }
+ }
+
+// injector
+@import 'back-to-top/back-to-top.less';
+@import 'ccss-news/ccss-news.less';
+@import 'defaults.less';
+@import 'main/main.less';
+@import 'news/news.less';
+@import 'footer/footer.less';
+@import 'navbar/navbar.less';
+// endinjector

@@ -1,0 +1,37 @@
+'use strict';
+
+angular.module('websiteApp')
+  .controller('NavbarCtrl', function ($scope, $location) {
+    $scope.menu = [{
+      'title': 'News',
+      'link': '#news'
+    },
+    {
+      'title': 'Resources',
+      'link': '#resources'
+    },
+    {
+      'title': 'Governance',
+      'link': '#governance'
+    },
+    {
+      'title': 'Get Involved',
+      'link': '#get-involved'
+    }
+    ];
+
+    $scope.goto = function(hash) {
+      // set the location.hash to the id of
+      // the element you wish to scroll to.
+      $location.hash('bottom');
+
+      // call $anchorScroll()
+      $anchorScroll();
+    };
+
+    $scope.navOpen = false;
+
+    $scope.isActive = function(route) {
+      return route === $location.path();
+    };
+  });

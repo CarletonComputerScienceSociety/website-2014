@@ -1,7 +1,0 @@
-{
-  "noreplyEmail":"DEFAULT_EMAIL",
-  "noreplyPassword":"DEFAULT_PASSWORD",
-  "stripePublicKey":"PUBLIC_KEY",
-  "stripePrivateKey":"PRIVATE_KEY",
-  "volunteerEmail":"matt.diener@ccss.carleton.ca"
-}

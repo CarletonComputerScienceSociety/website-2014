@@ -1,0 +1,69 @@
+@import 'defaults.less';
+
+.footer
+{
+  height: 100%;
+  margin: 0;
+
+  background: @color-grey-dark;
+
+  color: @color-grey;
+
+  text-transform: uppercase;
+  font-size: 0.8em;
+  padding: 10px 10px;
+
+  strong {
+    color: #fff;
+    padding-right: 5px;
+  }
+
+
+  h1 {
+    font-size: 1.6em;
+    text-transform: uppercase;
+    color: #fff;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .social {
+    width: 33%;
+    a {
+      color: #fff;
+      padding-right: 20px;
+      text-decoration: none;
+    }
+  }
+
+  .column {
+    width: 100%;
+    text-transform: uppercase;
+
+    ul {
+      padding-left: 0;
+      margin-left: 0;
+    }
+
+    li {
+      list-style: none;
+      text-transform: uppercase;
+
+      a {
+        color: @color-grey;
+        text-decoration: none;
+        letter-spacing: 1px;
+      }
+
+      a:hover {
+        color: @color-grey-light;
+      }
+    }
+
+  }
+
+}

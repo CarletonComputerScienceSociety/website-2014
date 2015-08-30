@@ -1,0 +1,103 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px;
+  margin: 0;
+  padding: 0;
+  color: rgba(255,255,255,0.8);
+  text-align: right;
+  z-index: 10;
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.65+0,0+100;Neutral+Density */
+  background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
+  ul {
+    padding: 0;
+    margin: 10px 0;
+  }
+
+  li {
+    list-style-type: none;
+    display: inline-block;
+    padding-right: 20px;
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-size: 1.2em;
+
+    a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+  }
+
+  li.divider {
+    display: inline-block;
+    height: 25px;
+    width: 1px;
+    border-left: 1px solid rgba(255,255,255,0.8);
+    vertical-align: text-bottom;
+  }
+
+  .nav-header {
+    display: none;
+  }
+
+  .material-design-hamburger__layer {
+    background: fadeout(@color-red, 10%);
+  }
+
+}
+
+@media screen and (max-width:767px) {
+  .navbar {
+
+    .nav-header {
+      display: block;
+    }
+
+    .nav-toggle {
+      top: 0;
+    }
+
+    .nav-list {
+      padding: 0;
+      margin: 0;
+      width: 256px;
+      position: absolute;
+      top: 50px;
+      left: -256px;
+      height: calc(~'100vh - 50px');
+
+      text-align: left;
+      overflow-y: auto;
+      //background: rgba(0,0,0,0.8);
+      background: linear-gradient(to right,  rgba(0,0,0,0.95) 0%,rgba(0,0,0,0) 100%); /* W3C */
+      transition: transform 0.2s linear;
+
+      li {
+        padding: 0 20px;
+        margin: 10px 0;
+        display: block;
+        font-size: 1.8em;
+      }
+
+      li.divider {
+        margin: 0 auto;
+        width: 80%;
+        height: 1px;
+        border-top: 1px solid rgba(255,255,255,0.8);
+      }
+    }
+
+    .nav-list.open {
+      transform: translateX(256px);
+    }
+  }
+}

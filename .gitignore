@@ -1,17 +1,7 @@
-# Ignore Website Wiki #
-website.wiki
-
-# Ignore Node Modules #
 node_modules
-
-# Ignore Bower Components #
-public/bower_components
-public/assets/podcasts
-
-# Ignore Vim temp files #
-[._]*.s[a-w][a-z]
-[._]s[a-w][a-z]
-*.un~
-Session.vim
-.netrwhist
-*~
+public
+.tmp
+.idea
+client/bower_components
+dist
+/server/config/local.env.js
