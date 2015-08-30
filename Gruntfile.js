@@ -360,6 +360,7 @@ module.exports = function (grunt) {
             '.htaccess',
             'bower_components/**/*',
             'assets/images/{,*/}*.{webp}',
+            'assets/articles/{,*/}*.{md,mkd}',
             'assets/fonts/**/*',
             'index.html'
           ]
