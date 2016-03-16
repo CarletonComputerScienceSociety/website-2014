@@ -1,25 +1,29 @@
 <div ng-controller="NewsCtrl" class="news-widget">
 
-  <nav class="news-nav">
-    <a href="#0" class="left" ng-click="prev()">
-      <i class="fa fa-arrow-left"></i>
-      <span>Previous</span>
-    </a>
-    <span>{{currArticle}} / {{numArticles}}</span>
-    <a href="#0" class="right" ng-click="next()">
-      <span>&nbsp;&nbsp;&nbsp;&nbsp;Next</span>
-      <i class="fa fa-arrow-right"></i>
-    </a>
-  </nav>
+<nav class="news-nav">
+<a href="#0" class="left" ng-click="prev()">
+<i class="fa fa-arrow-left"></i>
+<span>Previous</span>
+</a>
+<span>{{currArticle}} / {{numArticles}}</span>
+<a href="#0" class="right" ng-click="next()">
+<span>&nbsp;&nbsp;&nbsp;&nbsp;Next</span>
+<i class="fa fa-arrow-right"></i>
+</a>
+</nav>
 
-  <div class="news-articles">
-    <ul>
-      <li>
-        <ccss-news author="Sam Whiteley" published="January 20th, 2016"
-          article="assets/articles/resignations.mkd">
-        </ccss-news>
-      </li>
-    </ul>
-  </div>
+<div class="news-articles">
+<ul>
+<li>
+<ccss-news author="Sam Whiteley" published="March 15th, 2016"
+article="assets/articles/election-1.mkd">
+</li>
+<li>
+<ccss-news author="Sam Whiteley" published="January 20th, 2016"
+article="assets/articles/resignations.mkd">
+</ccss-news>
+</li>
+</ul>
+</div>
 
 </div>
