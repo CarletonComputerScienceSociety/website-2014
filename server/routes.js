@@ -5,6 +5,7 @@
 'use strict';
 
 var errors = require('./components/errors');
+var vote = require('./components/vote');
 
 module.exports = function(app) {
 
@@ -13,6 +14,9 @@ module.exports = function(app) {
     .get(function(req, res) {
       res.sendfile(app.get('appPath') + '/vote/index.html');
     });
+
+  app.route('/ballot')
+    .get(vote.ballot);
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
