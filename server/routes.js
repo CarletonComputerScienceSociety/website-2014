@@ -12,7 +12,7 @@ module.exports = function(app) {
   // Insert routes below
   app.route('/vote')
     .get(function(req, res) {
-      res.sendfile(app.get('appPath') + '/vote/index.html');
+      res.render('vote');
     });
 
   app.route('/ballot')
