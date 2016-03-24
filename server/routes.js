@@ -18,6 +18,9 @@ module.exports = function(app) {
   app.route('/ballot')
     .get(vote.ballot);
 
+  app.route('/ballot')
+    .post(vote.submit);
+
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);
