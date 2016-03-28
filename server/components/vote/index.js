@@ -136,7 +136,7 @@ module.exports.submit = function(req, res) {
   var numFilter = x => (/^(\-|\+)?([0-9]+|Infinity)$/.test(x))? Number(x): NaN;
   for(prop in vote) {
     prop = numFilter(prop);
-    if isNaN(prop) {
+    if (isNaN(prop)) {
       vote = {spoiled: true};
       break;
     }
