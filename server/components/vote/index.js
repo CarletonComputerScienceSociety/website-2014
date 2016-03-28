@@ -133,6 +133,15 @@ module.exports.submit = function(req, res) {
     console.log('[' + new Date().toString() + '] - Ballot Error: invalid body=> ' + req.body);
   }
 
+  var numFilter = x => (/^(\-|\+)?([0-9]+|Infinity)$/.test(x))? Number(x): NaN;
+  for(prop in vote) {
+    prop = numFilter(prop);
+    if (isNaN(prop)) {
+      vote = {spoiled: true};
+      break;
+    }
+  }
+
   try {
     //create Blowfish decrypting object with SCS given key/iv
     var decipher = crypto.createDecipheriv('BF-CBC', config.shared_key, config.iv);
