@@ -88,17 +88,24 @@ module.exports.ballotTemplate = '<!docType html>' +
 '</head>' +
 '<body>' +
 '<div class="content">' +
+'' +
 '<h1>CCSS Ballot 2015/2016</h1>' +
+'' +
 '<h2>Directions</h2>' +
+'' +
 '<p>This is a direct vote ballot, meaning that for each position available for' +
 'election you may select one (1) candidate, zero (0) candidates (also known as' +
-'an "abstain" vote), or you may select "No Confidence" indicating that you' +
+'an \'abstain\' vote), or you may select \'No Confidence\' indicating that you' +
 'believe no candidate is capable of this position. When you are ready to submit' +
-'your ballot, click the "Vote" button at the bottom of the ballot to do so. </p>' +
+'your ballot, click the \'Vote\' button at the bottom of the ballot to do so. </p>' +
+'' +
 '<p class=\'alert\'>ONCE YOU SUBMIT YOUR BALLOT IT CANNOT BE CHANGED</p>' +
+'' +
 '<form method="POST" action="ballot">' +
 '<input type="hidden" name="x" value="{{x}}">' +
+'' +
 '<h2>Ballot</h2>' +
+'' +
 '<div class="position">' +
 '<h3>Candidates for President</h3>' +
 '<ul>' +
@@ -111,42 +118,46 @@ module.exports.ballotTemplate = '<!docType html>' +
   '<option value="99">No Confidence</option>' +
 '</select>' +
 '</div>' +
+'' +
 '<div class="position">' +
 '<h3>Candidates for Vice-President</h3>' +
 '<ul>' +
-'<li>Andrew Morris</li>' +
+'<li>Jack McCracken</li>' +
 '</ul>' +
 '<label for="vpres">Vice-President Selection</label>' +
 '<select name="vpres" id="vpres">' +
-  '<option value="0" selected>Abstain</option>' +
-  '<option value="1">Andrew Morris</option>' +
-  '<option value="99">No Confidence</option>' +
-'</select>' +
-'</div>' +
-'<div class="position">' +
-'<h3>Candidates for Treasurer</h3>' +
-'<ul>' +
-'<li>Nobody?</li>' +
-'</ul>' +
-'<label for="tres">Treasurer Selection</label>' +
-'<select name="tres" id="tres">' +
-  '<option value="0" selected>Abstain</option>' +
-  '<option value="1">Nobody</option>' +
-  '<option value="99">No Confidence</option>' +
-'</select>' +
-'</div>' +
-'<div class="position">' +
-'<h3>Candidates for Vice-President of Academics</h3>' +
-'<ul>' +
-'<li>Jack McCracken</li>' +
-'</ul>' +
-'<label for="vpa">Vice-President of Academics Selection</label>' +
-'<select name="vpa" id="vpa">' +
   '<option value="0" selected>Abstain</option>' +
   '<option value="1">Jack McCracken</option>' +
   '<option value="99">No Confidence</option>' +
 '</select>' +
 '</div>' +
+'' +
+'<div class="position">' +
+'<h3>Candidates for Treasurer</h3>' +
+'<ul>' +
+'<li>Andrew Morris</li>' +
+'</ul>' +
+'<label for="tres">Treasurer Selection</label>' +
+'<select name="tres" id="tres">' +
+  '<option value="0" selected>Abstain</option>' +
+  '<option value="1">Andrew Morris</option>' +
+  '<option value="99">No Confidence</option>' +
+'</select>' +
+'</div>' +
+'' +
+'<div class="position">' +
+'<h3>Candidates for Vice-President of Academics</h3>' +
+'<ul>' +
+'<li>Matt Diener</li>' +
+'</ul>' +
+'<label for="vpa">Vice-President of Academics Selection</label>' +
+'<select name="vpa" id="vpa">' +
+  '<option value="0" selected>Abstain</option>' +
+  '<option value="1">Matt Diener</option>' +
+  '<option value="99">No Confidence</option>' +
+'</select>' +
+'</div>' +
+'' +
 '<div class="position">' +
 '<h3>Candidates for Vice-President of Social</h3>' +
 '<ul>' +
@@ -159,8 +170,11 @@ module.exports.ballotTemplate = '<!docType html>' +
   '<option value="99">No Confidence</option>' +
 '</select>' +
 '</div>' +
+'' +
 '<button>Vote</button>' +
+'' +
 '</form>' +
+'' +
 '</div>' +
 '</body>' +
 '</html>';
