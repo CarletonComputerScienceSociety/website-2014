@@ -5,8 +5,13 @@
 'use strict';
 
 var config = require('./conf.js');
-const crypto = require('crypto');
+var crypto = require('crypto');
 var mongo = require('mongodb').MongoClient;
+
+//Allows arbitrary strings to be regex-able patterns (escapes special chars)
+RegExp.quote = function(str) {
+  return (str + '').replace(/([.*+?^=!:${}()|\[\]\/\\])/g, '\\$1');
+};
 
 //This is just early warning if something is up with mongo
 mongo.connect(config.mongourl, function(err, db) {
@@ -21,7 +26,10 @@ mongo.connect(config.mongourl, function(err, db) {
 
 module.exports.ballot = function (req, res) {
 
-  var x = new Buffer(unescape(req.query.x).replace('+', ' '), 'binary');
+  //order of replace and unescape is important.
+  //replace '+' char with spaces, then turn percent encodings into their
+  //relevant bytes. The received data is an arbitrary byte string
+  var x = new Buffer(unescape(req.query.x.replace(/\+/g, ' ')), 'binary');
 
   //check to make sure they sent an x (redirect from the SCS login)
   if(typeof x === 'undefined' || x === undefined || x === '') {
@@ -39,8 +47,8 @@ module.exports.ballot = function (req, res) {
       //decrypt token
       var plaintext = decipher.update(x, 'utf8');
       plaintext += decipher.final('utf8');
-      //get time= user= and IP= pairs
-      var pairs = plaintext.replace('\0', '').split(' ');
+      //get time= user= and IP= pairs after stripping null byte padding
+      var pairs = plaintext.replace(/\u0000/g, '').split(' ');
       //build object literal from them
       var user = {}
       for(var i=0; i < pairs.length; ++i) {
@@ -56,7 +64,17 @@ module.exports.ballot = function (req, res) {
 
     //if the request IP doesn't match token IP or time since auth greater than a minute
     //then fail the request and ask for new token
-    if(req.ip !== user.IP || (new Date().getTime()/1000 - user.time > 60)) {
+    if(req.ip !== user['IP'] || (new Date().getTime()/1000 - user.time > 60)) {
+      console.log('[' + new Date().toString() + '] - Strange Token: ' + b64X);
+      console.log('  token:');
+      for(var key in user) {
+        console.log('     ' + key + '=' + user[key]);
+      }
+      if(req.ip !== user['IP']) {
+        console.log('  IP did not match ' + req.ip);
+      } else {
+        console.log('  time was longer than a minute');
+      }
       res.status(400).send('Please try logging in again');
       return;
     }
@@ -133,15 +151,6 @@ module.exports.submit = function(req, res) {
     console.log('[' + new Date().toString() + '] - Ballot Error: invalid body=> ' + req.body);
   }
 
-  var numFilter = x => (/^(\-|\+)?([0-9]+|Infinity)$/.test(x))? Number(x): NaN;
-  for(prop in vote) {
-    prop = numFilter(prop);
-    if (isNaN(prop)) {
-      vote = {spoiled: true};
-      break;
-    }
-  }
-
   try {
     //create Blowfish decrypting object with SCS given key/iv
     var decipher = crypto.createDecipheriv('BF-CBC', config.shared_key, config.iv);
@@ -150,8 +159,8 @@ module.exports.submit = function(req, res) {
     //decrypt token
     var plaintext = decipher.update(x, 'utf8');
     plaintext += decipher.final('utf8');
-    //get time= user= and IP= pairs
-    var pairs = plaintext.replace('\0', '').split(' ');
+    //get time= user= and IP= pairs after removing null byte padding
+    var pairs = plaintext.replace(/\u0000/g, '').split(' ');
     //build object literal from them
     var user = {}
     for(var i=0; i < pairs.length; ++i) {
